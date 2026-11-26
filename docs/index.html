@@ -36,7 +36,7 @@ a{color:var(--acc)}.mut{color:var(--mut)}footer{color:var(--mut);font-size:12px;
 <table><thead><tr>
 <th data-k="company">Company</th><th>Description</th><th data-k="funding">Funding</th><th>Areas</th><th data-k="hq">HQ</th><th data-k="date_added">Added</th>
 </tr></thead><tbody id="rows"></tbody></table>
-<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>. Descriptions are paraphrased; sources link to the original reporting. Corrections welcome via GitHub issues.</footer>
+<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>. Corrections welcome via GitHub issues.</footer>
 </main>
 <script>
 let D=[],sortK='date_added',dir=-1;
@@ -51,11 +51,11 @@ function init(){
  render()}
 function render(){
  const q=$('#q').value.toLowerCase(),a=$('#area').value,p=$('#phase').value;
- const f=D.filter(x=>(!a||x.area_names.includes(a))&&(!p||x.phases.includes(p))&&(!q||[x.company,x.description,x.category,x.category_ctr,x.cluster,x.hq].join(' ').toLowerCase().includes(q)));
+ const f=D.filter(x=>(!a||x.area_names.includes(a))&&(!p||x.phases.includes(p))&&(!q||[x.company,x.description,x.category,x.cluster,x.hq].join(' ').toLowerCase().includes(q)));
  f.sort((x,y)=>String(x[sortK]||'').localeCompare(String(y[sortK]||''))*dir);
  const wk=new Date(Date.now()-8*864e5).toISOString().slice(0,10);
  $('#stats').innerHTML=[[D.length,'companies tracked'],[f.length,'matching filters'],[D.filter(x=>x.date_added>=wk).length,'added in last 8 days']].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
- $('#rows').innerHTML=f.map(x=>`<tr><td class="co">${esc(x.company)}</td><td>${esc(x.description)||'<span class="mut">—</span>'}${x.source?` <a href="${esc(x.source)}" target="_blank" rel="noopener">source</a>`:''}</td><td>${esc(x.funding)}</td><td>${x.area_names.map(n=>`<span class="chip">${esc(n)}</span>`).join('')}</td><td>${esc(x.hq)}</td><td>${esc(x.date_added)}</td></tr>`).join('')}
+ $('#rows').innerHTML=f.map(x=>`<tr><td class="co">${esc(x.company)}</td><td>${esc(x.description)||'<span class="mut">—</span>'}${x.website?` <a href="${esc(x.website)}" target="_blank" rel="noopener">website</a>`:''}${x.linkedin?` · <a href="${esc(x.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`:''}</td><td>${esc(x.funding)}</td><td>${x.area_names.map(n=>`<span class="chip">${esc(n)}</span>`).join('')}</td><td>${esc(x.hq)}</td><td>${esc(x.date_added)}</td></tr>`).join('')}
 </script>
 </body>
 </html>
