@@ -3,59 +3,105 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ConTech Landscape — construction, preconstruction &amp; design tech</title>
+<title>ConTech Landscape — AECO technology directory</title>
 <style>
-:root{--bg:#f7f7f4;--fg:#1d2420;--mut:#66706a;--line:#dfe2dc;--acc:#2f5d46;--chip:#e8eee9}
-@media (prefers-color-scheme:dark){:root{--bg:#141816;--fg:#e8ece9;--mut:#9aa39d;--line:#2a312d;--acc:#8fc3a5;--chip:#22302a}}
+:root{--bg:#f7f7f4;--fg:#1d2420;--mut:#66706a;--line:#dfe2dc;--acc:#2f5d46;--chip:#e8eee9;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#141816;--fg:#e8ece9;--mut:#9aa39d;--line:#2a312d;--acc:#8fc3a5;--chip:#22302a;--card:#1b201d}}
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--fg)}
-header{padding:28px 24px 12px;max-width:1200px;margin:auto}h1{margin:0 0 4px;font-size:24px}
-.sub{color:var(--mut)}main{max-width:1200px;margin:auto;padding:0 24px 48px}
-.stats{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:140px}
+header,main{max-width:1240px;margin:auto;padding:0 24px}header{padding-top:28px}h1{margin:0 0 4px;font-size:24px}
+.sub{color:var(--mut)}.stats{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:140px}
 .stat b{display:block;font-size:22px}.stat span{color:var(--mut);font-size:12px}
 .controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-input,select{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
-input{flex:1;min-width:220px}select option{color:#000}
+input,select,button{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+input{flex:1;min-width:220px}select option{color:#000}button{cursor:pointer}
+.btn{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:600}
 table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;color:var(--mut);cursor:pointer;user-select:none;white-space:nowrap}
-td.co{font-weight:600;white-space:nowrap}.chip{display:inline-block;background:var(--chip);border-radius:10px;padding:1px 8px;margin:1px 2px 1px 0;font-size:12px;white-space:nowrap}
-a{color:var(--acc)}.mut{color:var(--mut)}footer{color:var(--mut);font-size:12px;margin-top:24px}
+th{font-size:12px;color:var(--mut);cursor:pointer;user-select:none;white-space:nowrap}td.co{font-weight:600;white-space:nowrap}
+.chip{display:inline-block;background:var(--chip);border-radius:10px;padding:1px 8px;margin:1px 2px 1px 0;font-size:12px;white-space:nowrap}
+.chip.s{background:transparent;border:1px solid var(--line)}
+a{color:var(--acc)}.mut{color:var(--mut)}footer{color:var(--mut);font-size:12px;margin:24px 0 40px}
+.submit{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 18px;margin:18px 0}
+.submit h2{margin:0 0 6px;font-size:16px}.submit .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+pre{white-space:pre-wrap;background:var(--chip);border-radius:8px;padding:12px;font-size:12.5px;margin:10px 0 0;display:none}
+.toast{margin-left:6px;color:var(--acc);font-size:12px}
 </style>
 </head>
 <body>
 <header>
 <h1>ConTech Landscape</h1>
-<div class="sub">An open, weekly-updated database of construction, preconstruction and design technology companies. <span id="asof"></span></div>
+<div class="sub">An open, weekly-updated directory of technology companies across the AECO ecosystem (architecture, engineering, construction and operations), including property tech. <span id="asof"></span></div>
 </header>
 <main>
+<section class="submit" id="submit">
+<h2>Add your company</h2>
+<div class="mut">Building for construction, design or property? Email the details and your company will be reviewed for the next weekly update.</div>
+<div class="row">
+<a class="btn" id="mailto" href="#" style="text-decoration:none;padding:7px 12px;border-radius:6px">Email a submission</a>
+<button type="button" id="copyEmail">Copy email address</button>
+<button type="button" id="copyTpl">Copy email template</button>
+<button type="button" id="showTpl">Show template</button>
+<span class="toast" id="toast" aria-live="polite"></span>
+</div>
+<pre id="tpl"></pre>
+</section>
+
 <div class="stats" id="stats"></div>
 <div class="controls">
-<input id="q" placeholder="Search company, description, category…" aria-label="Search">
-<select id="area" aria-label="Area"><option value="">All areas</option></select>
+<input id="q" placeholder="Search company, description, subcategory…" aria-label="Search">
+<select id="cat" aria-label="Category"><option value="">All categories</option></select>
+<select id="cust" aria-label="Customer"><option value="">All customers</option></select>
 <select id="phase" aria-label="Phase"><option value="">All phases</option></select>
 </div>
 <table><thead><tr>
-<th data-k="company">Company</th><th>Description</th><th data-k="funding">Funding</th><th>Areas</th><th data-k="hq">HQ</th><th data-k="date_added">Added</th>
+<th data-k="company">Company</th><th>Description</th><th>Category</th><th>Customer</th><th data-k="funding">Funding</th><th data-k="hq">HQ</th><th data-k="date_added">Added</th>
 </tr></thead><tbody id="rows"></tbody></table>
-<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>. Corrections welcome via GitHub issues.</footer>
+<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>, CC BY 4.0. Corrections welcome via GitHub issues or the email above.</footer>
 </main>
 <script>
-let D=[],sortK='date_added',dir=-1;
+const EMAIL='visheshvikramsingh@gmail.com', SUBJECT='[ConTech Landscape] Company submission: <Company name>';
+const TEMPLATE=`To: ${EMAIL}
+Subject: ${SUBJECT}
+
+Company name:
+Website:
+LinkedIn page:
+HQ (city, country):
+One- or two-sentence description of what you do:
+Category (pick 1-3): Design & Engineering / Preconstruction & Estimating / Bidding & Procurement / Project Management & Controls / Field Operations & Jobsite / Construction Finance & Payments / Offsite & Industrialized Construction / Supply Chain & Materials Commerce / Property & Asset Management / Real Estate Development & Investment / Smart Buildings & Facilities / Sustainability & Compliance / Workforce & Safety / Data AI & Integration Platforms
+Subcategory (e.g. Quantity takeoff, Bid & tender management, Reality capture & progress):
+Customers (e.g. General Contractor, Architect, Owner / Developer, Trade - Electrical):
+Project phases (Planning & Feasibility / Design / Preconstruction / Construction / Operations):
+Latest funding (round, amount, date), if public:
+Your name and role:`;
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const body=TEMPLATE.split('\n').slice(3).join('\n');
+$('#mailto').href=`mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(body)}`;
+$('#tpl').textContent=TEMPLATE;
+function toast(t){$('#toast').textContent=t;setTimeout(()=>$('#toast').textContent='',2200)}
+async function copy(t,msg){try{await navigator.clipboard.writeText(t);toast(msg)}catch(e){$('#tpl').style.display='block';toast('Copy blocked: select the text below')}}
+$('#copyEmail').onclick=()=>copy(EMAIL,'Email copied');
+$('#copyTpl').onclick=()=>copy(TEMPLATE,'Template copied');
+$('#showTpl').onclick=()=>{const p=$('#tpl');p.style.display=p.style.display==='block'?'none':'block'};
+
+let D=[],sortK='date_added',dir=-1;
 fetch('companies.json').then(r=>r.json()).then(d=>{D=d;init()});
+const uniq=k=>[...new Set(D.flatMap(x=>x[k]||[]))].sort();
 function init(){
- const areas=[...new Set(D.flatMap(x=>x.area_names))].sort(),ph=[...new Set(D.flatMap(x=>x.phases))].sort();
- areas.forEach(a=>$('#area').add(new Option(a,a)));ph.forEach(a=>$('#phase').add(new Option(a,a)));
+ uniq('category').forEach(a=>$('#cat').add(new Option(a,a)));
+ uniq('customer').forEach(a=>$('#cust').add(new Option(a,a)));
+ ['Planning & Feasibility','Design','Preconstruction','Construction','Operations'].filter(p=>uniq('phases').includes(p)).forEach(a=>$('#phase').add(new Option(a,a)));
  const last=D.map(x=>x.date_added).filter(Boolean).sort().pop();$('#asof').textContent=last?'Data as of '+last+'.':'';
- ['#q','#area','#phase'].forEach(s=>$(s).addEventListener('input',render));
+ ['#q','#cat','#cust','#phase'].forEach(s=>$(s).addEventListener('input',render));
  document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:1;sortK=k;render()});
  render()}
 function render(){
- const q=$('#q').value.toLowerCase(),a=$('#area').value,p=$('#phase').value;
- const f=D.filter(x=>(!a||x.area_names.includes(a))&&(!p||x.phases.includes(p))&&(!q||[x.company,x.description,x.category,x.cluster,x.hq].join(' ').toLowerCase().includes(q)));
+ const q=$('#q').value.toLowerCase(),c=$('#cat').value,u=$('#cust').value,p=$('#phase').value;
+ const f=D.filter(x=>(!c||(x.category||[]).includes(c))&&(!u||(x.customer||[]).includes(u))&&(!p||(x.phases||[]).includes(p))&&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q)));
  f.sort((x,y)=>String(x[sortK]||'').localeCompare(String(y[sortK]||''))*dir);
  const wk=new Date(Date.now()-8*864e5).toISOString().slice(0,10);
- $('#stats').innerHTML=[[D.length,'companies tracked'],[f.length,'matching filters'],[D.filter(x=>x.date_added>=wk).length,'added in last 8 days']].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
- $('#rows').innerHTML=f.map(x=>`<tr><td class="co">${esc(x.company)}</td><td>${esc(x.description)||'<span class="mut">—</span>'}${x.website?` <a href="${esc(x.website)}" target="_blank" rel="noopener">website</a>`:''}${x.linkedin?` · <a href="${esc(x.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`:''}</td><td>${esc(x.funding)}</td><td>${x.area_names.map(n=>`<span class="chip">${esc(n)}</span>`).join('')}</td><td>${esc(x.hq)}</td><td>${esc(x.date_added)}</td></tr>`).join('')}
+ $('#stats').innerHTML=[[D.length,'companies'],[f.length,'matching filters'],[D.filter(x=>x.date_added>=wk).length,'added in last 8 days']].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+ const chips=(a,cls='')=>(a||[]).map(n=>`<span class="chip ${cls}">${esc(n)}</span>`).join('');
+ $('#rows').innerHTML=f.length?f.map(x=>`<tr><td class="co">${esc(x.company)}</td><td>${esc(x.description)||'<span class="mut">—</span>'}<div>${x.website?`<a href="${esc(x.website)}" target="_blank" rel="noopener">website</a>`:''}${x.linkedin?` · <a href="${esc(x.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`:''}</div></td><td>${chips(x.category)}${chips(x.subcategory,'s')}</td><td>${chips(x.customer,'s')}</td><td>${esc(x.funding)}</td><td>${esc(x.hq)}</td><td>${esc(x.date_added)}</td></tr>`).join(''):`<tr><td colspan="7" class="mut">No companies published yet. <a href="#submit">Submit yours.</a></td></tr>`}
 </script>
 </body>
 </html>
