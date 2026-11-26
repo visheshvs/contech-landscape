@@ -14,7 +14,7 @@ Email **visheshvikramsingh@gmail.com** with the subject line:
 [ConTech Landscape] Company submission: <Company name>
 ```
 
-The [website](https://visheshvs.github.io/contech-landscape/#submit) has buttons that open a pre-filled email or copy the template. Or paste this template:
+The [website](https://visheshvs.github.io/contech-landscape/#submit) has a button that copies this template:
 
 ```
 Company name:
@@ -92,3 +92,6 @@ Submissions are checked against the company's own website and LinkedIn page befo
 ## License
 
 Data is released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Please credit "ConTech Landscape" with a link to this repo.
+
+---
+Created and managed by [Vishesh Vikram Singh](https://www.visheshvs.com/about).

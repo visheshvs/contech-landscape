@@ -23,7 +23,9 @@ a{color:var(--acc)}.mut{color:var(--mut)}footer{color:var(--mut);font-size:12px;
 .submit{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 18px;margin:18px 0}
 .submit h2{margin:0 0 6px;font-size:16px}.submit .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 pre{white-space:pre-wrap;background:var(--chip);border-radius:8px;padding:12px;font-size:12.5px;margin:10px 0 0;display:none}
-.toast{margin-left:6px;color:var(--acc);font-size:12px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);opacity:0;pointer-events:none;display:flex;gap:10px;align-items:center;background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:13.5px;transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;transform:translate(-50%,0)}.toast .tick{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--acc);color:var(--bg);font-size:12px;font-weight:700}
+.submit{scroll-margin-top:16px;transition:box-shadow .3s,border-color .3s}.submit.flash{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 30%,transparent)}
 </style>
 </head>
 <body>
@@ -36,12 +38,10 @@ pre{white-space:pre-wrap;background:var(--chip);border-radius:8px;padding:12px;f
 <h2>Add your company</h2>
 <div class="mut">Building for construction, design or property? Email the details and your company will be reviewed for the next weekly update.</div>
 <div class="row">
-<a class="btn" id="mailto" href="#" style="text-decoration:none;padding:7px 12px;border-radius:6px">Email a submission</a>
-<button type="button" id="copyEmail">Copy email address</button>
-<button type="button" id="copyTpl">Copy email template</button>
+<button type="button" class="btn" id="copyTpl">Copy email template</button>
 <button type="button" id="showTpl">Show template</button>
-<span class="toast" id="toast" aria-live="polite"></span>
 </div>
+<div class="mut" style="margin-top:8px;font-size:12.5px">Paste it into a new email to <b>visheshvikramsingh@gmail.com</b>, keeping the subject line as is.</div>
 <pre id="tpl"></pre>
 </section>
 
@@ -55,8 +55,9 @@ pre{white-space:pre-wrap;background:var(--chip);border-radius:8px;padding:12px;f
 <table><thead><tr>
 <th data-k="company">Company</th><th>Description</th><th>Category</th><th>Customer</th><th data-k="funding">Funding</th><th data-k="hq">HQ</th><th data-k="date_added">Added</th>
 </tr></thead><tbody id="rows"></tbody></table>
-<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>, CC BY 4.0. Corrections welcome via GitHub issues or the email above.</footer>
+<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>, CC BY 4.0. Corrections welcome via GitHub issues or the email above.<br>This website and database are created and managed by <a href="https://www.visheshvs.com/about" target="_blank" rel="noopener">Vishesh Vikram Singh</a>.</footer>
 </main>
+<div class="toast" id="toast" role="status" aria-live="polite"><span class="tick">✓</span><span id="toastMsg"></span></div>
 <script>
 const EMAIL='visheshvikramsingh@gmail.com', SUBJECT='[ConTech Landscape] Company submission: <Company name>';
 const TEMPLATE=`To: ${EMAIL}
@@ -74,13 +75,12 @@ Project phases (Planning & Feasibility / Design / Preconstruction / Construction
 Latest funding (round, amount, date), if public:
 Your name and role:`;
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const body=TEMPLATE.split('\n').slice(3).join('\n');
-$('#mailto').href=`mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(body)}`;
 $('#tpl').textContent=TEMPLATE;
-function toast(t){$('#toast').textContent=t;setTimeout(()=>$('#toast').textContent='',2200)}
-async function copy(t,msg){try{await navigator.clipboard.writeText(t);toast(msg)}catch(e){$('#tpl').style.display='block';toast('Copy blocked: select the text below')}}
-$('#copyEmail').onclick=()=>copy(EMAIL,'Email copied');
-$('#copyTpl').onclick=()=>copy(TEMPLATE,'Template copied');
+let tt;function toast(t){$('#toastMsg').textContent=t;const e=$('#toast');e.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('show'),2600)}
+function flash(){const s=$('#submit');s.classList.remove('flash');void s.offsetWidth;s.classList.add('flash');setTimeout(()=>s.classList.remove('flash'),1600)}
+window.addEventListener('hashchange',()=>{if(location.hash==='#submit')flash()});if(location.hash==='#submit')flash();
+async function copy(t,msg){try{await navigator.clipboard.writeText(t);toast(msg)}catch(e){$('#tpl').style.display='block';toast('Couldn\'t copy automatically. Select the template below instead')}}
+$('#copyTpl').onclick=()=>copy(TEMPLATE,'Template copied. Paste it into a new email to '+EMAIL);
 $('#showTpl').onclick=()=>{const p=$('#tpl');p.style.display=p.style.display==='block'?'none':'block'};
 
 let D=[],sortK='date_added',dir=-1;
