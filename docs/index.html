@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ConTech Landscape — construction, preconstruction &amp; design tech</title>
+<style>
+:root{--bg:#f7f7f4;--fg:#1d2420;--mut:#66706a;--line:#dfe2dc;--acc:#2f5d46;--chip:#e8eee9}
+@media (prefers-color-scheme:dark){:root{--bg:#141816;--fg:#e8ece9;--mut:#9aa39d;--line:#2a312d;--acc:#8fc3a5;--chip:#22302a}}
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--fg)}
+header{padding:28px 24px 12px;max-width:1200px;margin:auto}h1{margin:0 0 4px;font-size:24px}
+.sub{color:var(--mut)}main{max-width:1200px;margin:auto;padding:0 24px 48px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:140px}
+.stat b{display:block;font-size:22px}.stat span{color:var(--mut);font-size:12px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+input,select{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+input{flex:1;min-width:220px}select option{color:#000}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--mut);cursor:pointer;user-select:none;white-space:nowrap}
+td.co{font-weight:600;white-space:nowrap}.chip{display:inline-block;background:var(--chip);border-radius:10px;padding:1px 8px;margin:1px 2px 1px 0;font-size:12px;white-space:nowrap}
+a{color:var(--acc)}.mut{color:var(--mut)}footer{color:var(--mut);font-size:12px;margin-top:24px}
+</style>
+</head>
+<body>
+<header>
+<h1>ConTech Landscape</h1>
+<div class="sub">An open, weekly-updated database of construction, preconstruction and design technology companies. <span id="asof"></span></div>
+</header>
+<main>
+<div class="stats" id="stats"></div>
+<div class="controls">
+<input id="q" placeholder="Search company, description, category…" aria-label="Search">
+<select id="area" aria-label="Area"><option value="">All areas</option></select>
+<select id="phase" aria-label="Phase"><option value="">All phases</option></select>
+</div>
+<table><thead><tr>
+<th data-k="company">Company</th><th>Description</th><th data-k="funding">Funding</th><th>Areas</th><th data-k="hq">HQ</th><th data-k="date_added">Added</th>
+</tr></thead><tbody id="rows"></tbody></table>
+<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>. Descriptions are paraphrased; sources link to the original reporting. Corrections welcome via GitHub issues.</footer>
+</main>
+<script>
+let D=[],sortK='date_added',dir=-1;
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('companies.json').then(r=>r.json()).then(d=>{D=d;init()});
+function init(){
+ const areas=[...new Set(D.flatMap(x=>x.area_names))].sort(),ph=[...new Set(D.flatMap(x=>x.phases))].sort();
+ areas.forEach(a=>$('#area').add(new Option(a,a)));ph.forEach(a=>$('#phase').add(new Option(a,a)));
+ const last=D.map(x=>x.date_added).filter(Boolean).sort().pop();$('#asof').textContent=last?'Data as of '+last+'.':'';
+ ['#q','#area','#phase'].forEach(s=>$(s).addEventListener('input',render));
+ document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:1;sortK=k;render()});
+ render()}
+function render(){
+ const q=$('#q').value.toLowerCase(),a=$('#area').value,p=$('#phase').value;
+ const f=D.filter(x=>(!a||x.area_names.includes(a))&&(!p||x.phases.includes(p))&&(!q||[x.company,x.description,x.category,x.category_ctr,x.cluster,x.hq].join(' ').toLowerCase().includes(q)));
+ f.sort((x,y)=>String(x[sortK]||'').localeCompare(String(y[sortK]||''))*dir);
+ const wk=new Date(Date.now()-8*864e5).toISOString().slice(0,10);
+ $('#stats').innerHTML=[[D.length,'companies tracked'],[f.length,'matching filters'],[D.filter(x=>x.date_added>=wk).length,'added in last 8 days']].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+ $('#rows').innerHTML=f.map(x=>`<tr><td class="co">${esc(x.company)}</td><td>${esc(x.description)||'<span class="mut">—</span>'}${x.source?` <a href="${esc(x.source)}" target="_blank" rel="noopener">source</a>`:''}</td><td>${esc(x.funding)}</td><td>${x.area_names.map(n=>`<span class="chip">${esc(n)}</span>`).join('')}</td><td>${esc(x.hq)}</td><td>${esc(x.date_added)}</td></tr>`).join('')}
+</script>
+</body>
+</html>
