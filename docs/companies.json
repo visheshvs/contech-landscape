@@ -1,1 +1,1319 @@
-[]
+[
+  {
+    "company": "Archiboost AI",
+    "description": "AI platform that reviews drawing sets, combining PDFs with Revit model data, for code, coordination, specification and constructability issues, citing a source for each finding. It also offers a project copilot, RFI and submittal tracking, and a searchable detail library.",
+    "category": [
+      "Design & Engineering",
+      "Data AI & Integration Platforms",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Permitting & code review",
+      "Model coordination & clash",
+      "AI agents & copilots",
+      "Documents RFIs & submittals"
+    ],
+    "customer": [
+      "Architect",
+      "Owner / Developer",
+      "General Contractor",
+      "Structural Engineer",
+      "MEP Engineer"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Seed, $6.2M (pre-seed + seed), Nov 2026",
+    "hq": "San Francisco, United States",
+    "website": "https://archiboost.ai",
+    "linkedin": "https://www.linkedin.com/company/archiboostai",
+    "date_added": "2026-11-26"
+  },
+  {
+    "company": "Gritt",
+    "description": "Builds AI-driven robotic attachments that mount on existing jobsite equipment such as skid steers and forklifts to automate pick-and-place, transport and assembly, starting with utility-scale solar panel installation.",
+    "category": [
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Construction robotics software",
+      "Equipment & fleet"
+    ],
+    "customer": [
+      "General Contractor",
+      "Design-Builder",
+      "Trade - Electrical",
+      "Trade - Sitework / Civil"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Series A, $26M, Jul 2026",
+    "hq": "San Francisco, United States",
+    "website": "https://gritt.ai",
+    "linkedin": "https://www.linkedin.com/company/grittai/",
+    "date_added": "2026-11-26"
+  },
+  {
+    "company": "Pliera",
+    "description": "Rule-based building configurator that encodes a building type's design standards, modules and cost logic so teams can adapt and validate repeatable building series on new sites. Products include a residential plot feasibility tool with cost and return estimates and a browser-based BIM modeler.",
+    "category": [
+      "Design & Engineering",
+      "Preconstruction & Estimating",
+      "Real Estate Development & Investment"
+    ],
+    "subcategory": [
+      "BIM authoring",
+      "Generative & automated design",
+      "Site selection & feasibility",
+      "Conceptual estimating"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Design-Builder",
+      "Architect",
+      "Supplier / Manufacturer",
+      "General Contractor"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design"
+    ],
+    "funding": "Undisclosed (angel-backed), Nov 2026",
+    "hq": "Karlsruhe, Germany",
+    "website": "https://pliera.com",
+    "linkedin": "",
+    "date_added": "2026-11-26"
+  },
+  {
+    "company": "Pulley",
+    "description": "Managed commercial permitting service for organizations building many sites across many jurisdictions, where in-house specialists supported by AI and tracking software move projects from application through plan-review comments to approval.",
+    "category": [
+      "Design & Engineering",
+      "Sustainability & Compliance"
+    ],
+    "subcategory": [
+      "Permitting & code review",
+      "Regulatory & compliance"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Facility / Property Manager",
+      "Architect",
+      "Owner's Rep / PM"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Series B, $41M, Nov 2026",
+    "hq": "San Francisco, United States",
+    "website": "https://www.withpulley.com",
+    "linkedin": "",
+    "date_added": "2026-11-26"
+  },
+  {
+    "company": "Stoa",
+    "description": "AI assistant for complex construction projects that reads drawings, specifications, contracts, schedules and site records, answers questions with page-level citations and flags changes such as reissued drawings or moved dates. It connects read-only to existing document systems.",
+    "category": [
+      "Data AI & Integration Platforms",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "AI agents & copilots",
+      "Documents RFIs & submittals",
+      "Data integration & APIs"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Owner / Developer",
+      "Owner's Rep / PM"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Pre-seed, EUR 3.5M, Nov 2026",
+    "hq": "Helsinki, Finland",
+    "website": "https://www.stoabuild.com",
+    "linkedin": "",
+    "date_added": "2026-11-26"
+  },
+  {
+    "company": "Brdg",
+    "description": "AI software for construction lending that pulls data from scattered project documents to reconcile budgets, calculate loan draws and produce lender-ready reports.",
+    "category": [
+      "Construction Finance & Payments",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Lending & draws",
+      "Data integration & APIs"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "Investor / Lender"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Pre-seed, CAD $850K, Aug 2026",
+    "hq": "Montreal, Canada",
+    "website": "https://brdg.ca",
+    "linkedin": "",
+    "date_added": "2026-08-26"
+  },
+  {
+    "company": "Aphex",
+    "description": "Collaborative planning and delivery platform for large construction and infrastructure projects. It connects the master programme to lookaheads, weekly work plans, resources, briefings, production tracking and site diaries.",
+    "category": [
+      "Project Management & Controls",
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Scheduling & planning",
+      "Daily logs & field reporting"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Seed, $2.0M, Sep 2024",
+    "hq": "London, United Kingdom",
+    "website": "https://aphex.co/",
+    "linkedin": "https://www.linkedin.com/company/aphexhq/",
+    "date_added": "2026-08-12"
+  },
+  {
+    "company": "Constructable",
+    "description": "AI-native construction management software that runs a contractor's project from bidding to closeout in one system, including RFIs, submittals, drawings, takeoffs, daily logs, punch lists and change orders, with AI search across project data and flat-rate pricing.",
+    "category": [
+      "Project Management & Controls",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Project management suite",
+      "Documents RFIs & submittals",
+      "Change order management",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Seed, undisclosed, Jan 2024",
+    "hq": "Santa Barbara, United States",
+    "website": "https://www.constructable.ai/",
+    "linkedin": "https://www.linkedin.com/company/constructableapp",
+    "date_added": "2026-08-12"
+  },
+  {
+    "company": "Agave",
+    "description": "Construction data integration company that began with a unified API linking contractors' ERP, accounting and project management systems. It now also offers AI agents for back-office work such as invoice matching, compliance, billing and financial reporting.",
+    "category": [
+      "Data AI & Integration Platforms",
+      "Construction Finance & Payments"
+    ],
+    "subcategory": [
+      "Data integration & APIs",
+      "AI agents & copilots",
+      "Construction accounting & ERP"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Series A, $15M, Jul 2026",
+    "hq": "San Francisco, United States",
+    "website": "https://www.useagave.com",
+    "linkedin": "https://www.linkedin.com/company/agave-api/",
+    "date_added": "2026-07-21"
+  },
+  {
+    "company": "1Build",
+    "description": "Construction cost data company offering localized material, labor and equipment pricing through an API and its own estimating app. Its pricing data is embedded in other estimating and takeoff tools, largely for residential and specialty contractors.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Cost data & benchmarking",
+      "Detailed estimating",
+      "Data integration & APIs"
+    ],
+    "customer": [
+      "General Contractor",
+      "Remodeler",
+      "Homebuilder",
+      "Trade - Roofing",
+      "Trade - Other",
+      "Supplier / Manufacturer"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Series A, $14.5M, Sep 2021",
+    "hq": "Mountain View, United States",
+    "website": "https://1build.com",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Adaptive",
+    "description": "AI project-accounting platform for builders. Its agents handle job costing, payables, billing, WIP, forecasting and change orders on top of a contractor's existing accounting system, with a person approving each action.",
+    "category": [
+      "Construction Finance & Payments",
+      "Project Management & Controls",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Construction accounting & ERP",
+      "Cost management & controls",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Homebuilder",
+      "Remodeler",
+      "Owner / Developer",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Series B, $30M, Sep 2026",
+    "hq": "New York, United States",
+    "website": "https://www.adaptive.build/",
+    "linkedin": "https://www.linkedin.com/company/adaptiverealestate",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Aecore",
+    "description": "San Jose-area commercial builder offering design-build and construction management, along with its own software that gives clients and trade partners budgets, cost tracking and live project updates.",
+    "category": [
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Cost management & controls",
+      "Project management suite"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "General Contractor",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "",
+    "hq": "San Jose, United States",
+    "website": "https://www.aecore.com",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Algoma",
+    "description": "AI platform for real estate developers that turns an address into a deal analysis covering feasibility, zoning, market data and pro forma. It grew out of software for designing repeatable low-carbon mass timber buildings.",
+    "category": [
+      "Real Estate Development & Investment",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Development & underwriting",
+      "Site selection & feasibility"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Investor / Lender"
+    ],
+    "phases": [
+      "Planning & Feasibility"
+    ],
+    "funding": "Seed, $2.3M, May 2025",
+    "hq": "United States",
+    "website": "https://algoma.co",
+    "linkedin": "https://www.linkedin.com/company/algomaco",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Altura",
+    "description": "Amsterdam-based bid and tender management software with AI agents that draft answers, flag risks and surface win/loss patterns. It serves several sectors, construction among them.",
+    "category": [
+      "Bidding & Procurement",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Bid & tender management",
+      "Proposal generation",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Public Agency"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Series A, EUR 8M, Jun 2025",
+    "hq": "Amsterdam, Netherlands",
+    "website": "https://altura.io",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Anori",
+    "description": "Spinout from Alphabet's X that gathers zoning, codes, cost, materials and site data into one early-stage workspace. It generates site plans and building designs and evaluates them for compliance, function and financial viability.",
+    "category": [
+      "Real Estate Development & Investment",
+      "Design & Engineering",
+      "Sustainability & Compliance"
+    ],
+    "subcategory": [
+      "Development & underwriting",
+      "Permitting & code review",
+      "Generative & automated design",
+      "Regulatory & compliance"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Architect",
+      "Public Agency",
+      "Investor / Lender"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design"
+    ],
+    "funding": "Spinout funding, $26M, Mar 2026",
+    "hq": "San Francisco, United States",
+    "website": "https://www.anori.com/",
+    "linkedin": "https://www.linkedin.com/company/anori-inc/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Arch",
+    "description": "Platform for residential HVAC contractors that analyzes homes, sizes heat pump systems and helps line up financing and incentives so installations close faster.",
+    "category": [
+      "Sustainability & Compliance",
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "Energy & carbon",
+      "Proposal generation",
+      "Trade business management"
+    ],
+    "customer": [
+      "Trade - Mechanical / HVAC",
+      "Homeowner"
+    ],
+    "phases": [
+      "Design",
+      "Construction"
+    ],
+    "funding": "Seed, $6.2M, Feb 2024",
+    "hq": "San Francisco, United States",
+    "website": "https://getarch.com",
+    "linkedin": "https://www.linkedin.com/company/get-arch",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Archistar",
+    "description": "AI property platform combining site feasibility and generative design with automated planning-compliance checks that councils use to speed up development approvals.",
+    "category": [
+      "Design & Engineering",
+      "Real Estate Development & Investment",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Permitting & code review",
+      "Generative & automated design",
+      "Development & underwriting",
+      "Site selection & feasibility"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Architect",
+      "Public Agency",
+      "Investor / Lender",
+      "Homebuilder"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design"
+    ],
+    "funding": "Series A extension, A$11M, Jun 2022",
+    "hq": "Sydney, Australia",
+    "website": "https://www.archistar.ai",
+    "linkedin": "https://www.linkedin.com/company/archistar",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Assemble Systems",
+    "description": "Cloud tool that extracts quantities and properties from BIM models so preconstruction teams can condition, filter and compare model versions for takeoff and estimating. It is now part of Autodesk Construction Cloud.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Design & Engineering"
+    ],
+    "subcategory": [
+      "5D / model-based estimating",
+      "Quantity takeoff",
+      "Model coordination & clash"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder",
+      "Owner / Developer",
+      "Trade - Mechanical / HVAC",
+      "Trade - Electrical"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Acquired by Autodesk (2018)",
+    "hq": "Houston, United States",
+    "website": "https://construction.autodesk.com/products/assemble/",
+    "linkedin": "https://www.linkedin.com/company/assemble-systems",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Attentive.ai (Beam AI)",
+    "description": "Maker of Beam AI, which automatically measures quantities from construction plans for contractors and suppliers. The company also builds AI tools for landscaping and field-service businesses.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "AI agents & copilots",
+      "Trade business management"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Sitework / Civil",
+      "Trade - Concrete",
+      "Trade - Drywall / Interiors",
+      "Trade - Electrical",
+      "Trade - Mechanical / HVAC",
+      "Trade - Plumbing",
+      "Trade - Roofing",
+      "Trade - Other",
+      "Supplier / Manufacturer"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Series B, $30.5M, Nov 2025",
+    "hq": "San Francisco, United States",
+    "website": "https://www.ibeam.ai",
+    "linkedin": "https://www.linkedin.com/company/beam-ai",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Autodesk (Revit/ACC/Forma)",
+    "description": "Design and make software company whose AECO portfolio covers BIM authoring (Revit), early-stage planning (Forma) and Autodesk Construction Cloud for preconstruction, bidding, takeoff, cost and field management.",
+    "category": [
+      "Design & Engineering",
+      "Preconstruction & Estimating",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "BIM authoring",
+      "Quantity takeoff",
+      "Project management suite",
+      "Cost management & controls"
+    ],
+    "customer": [
+      "Architect",
+      "Structural Engineer",
+      "MEP Engineer",
+      "Civil Engineer",
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder",
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "Public (ADSK)",
+    "hq": "San Francisco, United States",
+    "website": "https://www.autodesk.com",
+    "linkedin": "https://www.linkedin.com/company/autodesk",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Beam",
+    "description": "Financial management app for contractors covering estimates, invoicing, change orders, bill pay, expenses and lien waivers, alongside a business account and card.",
+    "category": [
+      "Construction Finance & Payments",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Payments & pay apps",
+      "Change order management",
+      "Construction accounting & ERP",
+      "Trade business management"
+    ],
+    "customer": [
+      "Trade - Other",
+      "General Contractor",
+      "Remodeler",
+      "Homebuilder"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Series A, $11M, Feb 2025",
+    "hq": "San Francisco, United States",
+    "website": "https://trybeam.com",
+    "linkedin": "https://www.linkedin.com/company/usebeam",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Beck Technology",
+    "description": "Developer of the DESTINI preconstruction suite, with tools for parametric conceptual estimating, detailed and model-based estimating, and design options analysis. It added AI takeoff through the Workpack acquisition.",
+    "category": [
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Conceptual estimating",
+      "Detailed estimating",
+      "5D / model-based estimating",
+      "Preconstruction platform"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder",
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "Architect"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Subsidiary of The Beck Group",
+    "hq": "Dallas, United States",
+    "website": "https://beck-technology.com",
+    "linkedin": "https://www.linkedin.com/company/beck-technology",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Belidor",
+    "description": "AI bid-leveling tool for general contractor preconstruction teams that extracts line items from subcontractor bid PDFs and normalizes them for side-by-side comparison.",
+    "category": [
+      "Bidding & Procurement",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Bid & tender management",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Pre-seed, $3.1M, Oct 2025",
+    "hq": "New York, United States",
+    "website": "https://belidor.ai",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Bild AI",
+    "description": "AI platform that reads construction blueprints to generate takeoffs and cost estimates and to pre-check plans for code compliance before permitting.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Design & Engineering",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating",
+      "Permitting & code review",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Homebuilder",
+      "Owner / Developer",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Seed, $3.1M, Jul 2025",
+    "hq": "San Francisco, United States",
+    "website": "https://bild.ai",
+    "linkedin": "https://www.linkedin.com/company/getbild",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Bluebeam",
+    "description": "PDF markup and collaboration software used across AEC teams to review drawings, measure 2D takeoffs and coordinate document sets in shared live sessions.",
+    "category": [
+      "Project Management & Controls",
+      "Preconstruction & Estimating",
+      "Design & Engineering"
+    ],
+    "subcategory": [
+      "Documents RFIs & submittals",
+      "Quantity takeoff",
+      "Model coordination & clash"
+    ],
+    "customer": [
+      "Architect",
+      "Structural Engineer",
+      "MEP Engineer",
+      "Civil Engineer",
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder",
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "Trade - Electrical",
+      "Trade - Mechanical / HVAC",
+      "Trade - Plumbing",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Subsidiary of Nemetschek Group",
+    "hq": "Pasadena, United States",
+    "website": "https://www.bluebeam.com",
+    "linkedin": "https://www.linkedin.com/company/bluebeam-inc",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Bobyard",
+    "description": "AI software that uses computer vision to automate quantity takeoffs and estimates from construction plans. It began in landscaping and is expanding into electrical, drywall, HVAC, plumbing and framing.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "Trade - Sitework / Civil",
+      "Trade - Other",
+      "Trade - Electrical",
+      "Trade - Drywall / Interiors",
+      "Trade - Mechanical / HVAC",
+      "Trade - Plumbing",
+      "General Contractor"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Series A, $35M, Dec 2025",
+    "hq": "San Francisco, United States",
+    "website": "https://www.bobyard.com",
+    "linkedin": "https://www.linkedin.com/company/bobyard",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Brickanta",
+    "description": "Agentic AI layer that reads tender documents, drawings and contracts so construction teams can analyze bids, manage requirements, assemble procurement packages and review contracts, with answers linked to sources. It sits on top of existing file stores.",
+    "category": [
+      "Data AI & Integration Platforms",
+      "Bidding & Procurement",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "AI agents & copilots",
+      "Bid & tender management",
+      "Procurement & quoting",
+      "Preconstruction platform"
+    ],
+    "customer": [
+      "General Contractor",
+      "Owner / Developer",
+      "Construction Manager"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Seed, $8M, Jan 2026",
+    "hq": "Stockholm, Sweden",
+    "website": "https://www.brickanta.com",
+    "linkedin": "https://www.linkedin.com/company/brickanta",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Briq",
+    "description": "Financial automation and AI agent software for contractors that automates job cost forecasting, budgeting, change orders and back-office workflows on top of existing ERP and project systems.",
+    "category": [
+      "Construction Finance & Payments",
+      "Project Management & Controls",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Construction accounting & ERP",
+      "Cost management & controls",
+      "Risk & forecasting",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Other",
+      "Construction Manager"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Strategic investment from Nemetschek Group, undisclosed, Jan 2024",
+    "hq": "Santa Barbara, United States",
+    "website": "https://briq.com",
+    "linkedin": "https://www.linkedin.com/company/briqhq",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "BuildingConnected",
+    "description": "Autodesk's bid management network for commercial construction, where GCs and owners invite subcontractors to bid, compare bids and assess sub risk, and trades receive and track invitations.",
+    "category": [
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "Bid & tender management",
+      "Subcontractor prequalification"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Owner / Developer",
+      "Trade - Electrical",
+      "Trade - Mechanical / HVAC",
+      "Trade - Plumbing",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Acquired by Autodesk (2018)",
+    "hq": "San Francisco, United States",
+    "website": "https://www.buildingconnected.com",
+    "linkedin": "https://www.linkedin.com/company/buildingconnected",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Buildr",
+    "description": "Preconstruction workspace for general contractors that combines CRM, estimating, bidding, forecasting and workforce planning, with an AI agent that searches past estimates, assembles proposals and checks capacity.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Bidding & Procurement",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Preconstruction platform",
+      "Proposal generation",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "",
+    "hq": "Coarsegold, United States",
+    "website": "https://buildr.com",
+    "linkedin": "https://www.linkedin.com/company/buildrtech",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Buildxact",
+    "description": "Estimating, quoting and job management software for residential builders and remodelers, with AI-assisted takeoff, live supplier pricing and accounting integrations.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating",
+      "Project management suite",
+      "Residential builder software"
+    ],
+    "customer": [
+      "Homebuilder",
+      "Remodeler",
+      "Trade - Other",
+      "Supplier / Manufacturer",
+      "Homeowner"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Series A, A$18.5M, Feb 2022",
+    "hq": "Melbourne, Australia",
+    "website": "https://www.buildxact.com",
+    "linkedin": "https://www.linkedin.com/company/buildxact",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Builtop",
+    "description": "Saudi digital procurement platform for construction and real estate that connects contractors with suppliers and offers embedded trade credit and AI-assisted material purchasing.",
+    "category": [
+      "Supply Chain & Materials Commerce",
+      "Bidding & Procurement",
+      "Construction Finance & Payments"
+    ],
+    "subcategory": [
+      "Materials marketplace",
+      "Procurement & quoting",
+      "Payments & pay apps"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Other",
+      "Supplier / Manufacturer",
+      "Distributor",
+      "Owner / Developer"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Seed, $11M, Nov 2025",
+    "hq": "Riyadh, Saudi Arabia",
+    "website": "https://builtop.com/en",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Bundle",
+    "description": "Materials procurement platform for residential and modular builders that suggests vendors from uploaded bills of materials, tracks spend against budget, handles payment and follows orders through delivery.",
+    "category": [
+      "Supply Chain & Materials Commerce",
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "Materials marketplace",
+      "Procurement & quoting",
+      "Logistics & delivery",
+      "Residential builder software"
+    ],
+    "customer": [
+      "Homebuilder",
+      "Owner / Developer",
+      "General Contractor",
+      "Supplier / Manufacturer",
+      "Distributor"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Seed, $4M, 2023",
+    "hq": "Oakland, United States",
+    "website": "https://bundle.build",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Caeli Wind",
+    "description": "German digital marketplace that screens landowners' plots for wind-farm potential and matches pre-assessed sites with wind project developers through a structured bidding process.",
+    "category": [
+      "Real Estate Development & Investment",
+      "Sustainability & Compliance",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Development & underwriting",
+      "Energy & carbon",
+      "Site selection & feasibility"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Investor / Lender"
+    ],
+    "phases": [
+      "Planning & Feasibility"
+    ],
+    "funding": "Series A, EUR 11M, May 2024",
+    "hq": "Berlin, Germany",
+    "website": "https://www.caeli-wind.de",
+    "linkedin": "https://de.linkedin.com/company/caeli-wind",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Candid Intelligence",
+    "description": "AI-assisted owner's engineering firm for gas-fired power projects that takes them from concept to investment decision, producing plot plans, process balances, electrical diagrams, cost estimates and schedules stamped by licensed engineers.",
+    "category": [
+      "Design & Engineering",
+      "Preconstruction & Estimating",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Engineering analysis",
+      "Conceptual estimating",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Investor / Lender"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Seed, $5.5M, Jun 2025",
+    "hq": "San Francisco, United States",
+    "website": "https://candid.engineering/",
+    "linkedin": "https://www.linkedin.com/company/candid-intelligence/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Canvas",
+    "description": "Builds a semi-autonomous drywall finishing system that uses a robotic arm and computer vision to spray and sand joint compound to high finish levels, run by a skilled operator.",
+    "category": [
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Construction robotics software"
+    ],
+    "customer": [
+      "Trade - Drywall / Interiors",
+      "Trade - Painting / Finishes",
+      "General Contractor"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Acquired by JLG (Oshkosh) (2026)",
+    "hq": "San Francisco, United States",
+    "website": "https://www.canvas.build/",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Clearstory",
+    "description": "Shared change-order platform where GCs, specialty contractors and owners log change requests, sign photo-backed T&M tags on mobile, track allowances and contingency, and sync pricing to their ERP.",
+    "category": [
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Change order management",
+      "Cost management & controls"
+    ],
+    "customer": [
+      "General Contractor",
+      "Owner / Developer",
+      "Trade - Electrical",
+      "Trade - Concrete",
+      "Trade - Mechanical / HVAC",
+      "Trade - Roofing",
+      "Trade - Sitework / Civil",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Series B, $16M, Jun 2024",
+    "hq": "Walnut Creek, United States",
+    "website": "https://www.clearstory.build",
+    "linkedin": "https://www.linkedin.com/company/clearstory-build/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "ConCntric",
+    "description": "AI-native preconstruction platform for general contractors that unifies pursuit, pre-planning, budgeting, procurement and buyout, structuring historical project data with an agentic assistant on top.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Bidding & Procurement",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Preconstruction platform",
+      "Conceptual estimating",
+      "Procurement & quoting",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Owner / Developer"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Series A, $10M, Oct 2025",
+    "hq": "San Francisco, United States",
+    "website": "https://concntric.com",
+    "linkedin": "https://www.linkedin.com/company/concntric/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Concrew",
+    "description": "Japanese all-in-one management software for small and mid-sized construction firms covering customers, projects, estimates, cost and margin tracking, ordering and scheduling, with AI agents that draft estimates and digitize paper quotes.",
+    "category": [
+      "Project Management & Controls",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Project management suite",
+      "Detailed estimating",
+      "Cost management & controls",
+      "Trade business management"
+    ],
+    "customer": [
+      "General Contractor",
+      "Remodeler",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Pre-Series A, JPY 170M, Nov 2025",
+    "hq": "Tokyo, Japan",
+    "website": "https://www.concrew.co.jp/",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "ConstructConnect",
+    "description": "Commercial preconstruction data and software company offering project lead intelligence and bid management alongside takeoff and estimating products such as On-Screen Takeoff, PlanSwift, Quick Bid and QuoteSoft.",
+    "category": [
+      "Bidding & Procurement",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Bid & tender management",
+      "Quantity takeoff",
+      "Detailed estimating"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Electrical",
+      "Trade - Mechanical / HVAC",
+      "Trade - Plumbing",
+      "Trade - Other",
+      "Supplier / Manufacturer",
+      "Distributor"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Subsidiary of Roper Technologies",
+    "hq": "Cincinnati, United States",
+    "website": "https://www.constructconnect.com",
+    "linkedin": "https://www.linkedin.com/company/constructconnect",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Contractor Foreman",
+    "description": "All-in-one construction management software for small and mid-sized contractors covering scheduling, daily logs, estimating, change orders, purchasing, invoicing, time cards, safety and a client portal, at a low monthly price.",
+    "category": [
+      "Project Management & Controls",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Project management suite",
+      "Detailed estimating",
+      "Trade business management",
+      "Residential builder software"
+    ],
+    "customer": [
+      "General Contractor",
+      "Remodeler",
+      "Homebuilder",
+      "Trade - Electrical",
+      "Trade - Plumbing",
+      "Trade - Mechanical / HVAC",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "",
+    "hq": "Forest City, United States",
+    "website": "https://contractorforeman.com",
+    "linkedin": "https://linkedin.com/company/contractor-foreman",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "ConWize",
+    "description": "Cloud estimating and tender management software for building and infrastructure projects, where users price bills of quantities from their own historical rates, compare subcontractor and supplier quotes, and analyze costs.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "Detailed estimating",
+      "Cost data & benchmarking",
+      "Bid & tender management"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "General Contractor",
+      "Trade - Other",
+      "Public Agency"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Seed, $2.8M, Jun 2022",
+    "hq": "Hadera, Israel",
+    "website": "https://conwize.co.il",
+    "linkedin": "https://www.linkedin.com/company/conwize/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Corecon Technologies",
+    "description": "Long-established cloud construction software for estimating, project management and job costing, with a free portal where owners, designers and subcontractors exchange and comment on project documents.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Detailed estimating",
+      "Project management suite",
+      "Cost management & controls"
+    ],
+    "customer": [
+      "General Contractor",
+      "Remodeler",
+      "Homebuilder",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "",
+    "hq": "Huntington Beach, United States",
+    "website": "https://www.corecon.com",
+    "linkedin": "https://www.linkedin.com/company/corecon-technologies-inc-/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Davis",
+    "description": "Paris-based AI company that produces early-stage development studies for real estate projects, including feasibility, site analysis, massing and floor plans. Its own generative design models are paired with expert human review, and it is delivered as a service.",
+    "category": [
+      "Real Estate Development & Investment",
+      "Design & Engineering",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Development & underwriting",
+      "Generative & automated design",
+      "Site selection & feasibility"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Architect"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design"
+    ],
+    "funding": "Pre-Seed, $5.5M, May 2026",
+    "hq": "Paris, France",
+    "website": "https://meetdavis.com",
+    "linkedin": "https://www.linkedin.com/company/davisai/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Feldy (formerly Aether)",
+    "description": "AI software for residential solar installers that brings sales, system design, job setup and post-install monitoring into one tool.",
+    "category": [
+      "Sustainability & Compliance",
+      "Design & Engineering"
+    ],
+    "subcategory": [
+      "Energy & carbon",
+      "Engineering analysis",
+      "Trade business management"
+    ],
+    "customer": [
+      "Trade - Electrical",
+      "Trade - Roofing",
+      "Homeowner"
+    ],
+    "phases": [
+      "Design",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "Seed, $2.5M, Oct 2024",
+    "hq": "Denver, United States",
+    "website": "https://feldy.ai",
+    "linkedin": "https://www.linkedin.com/company/feldyai/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Illoca",
+    "description": "AI-native architectural design software that turns sketches, diagrams, renderings or text prompts into editable 2D and 3D building models exportable to Revit. It has also launched an agentic 3D modeling workspace.",
+    "category": [
+      "Design & Engineering",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Generative & automated design",
+      "BIM authoring",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "Architect",
+      "Interior Designer",
+      "Design-Builder",
+      "Owner / Developer"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design"
+    ],
+    "funding": "Seed, $13M, May 2026",
+    "hq": "United States",
+    "website": "https://illoca.com/",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  }
+]
