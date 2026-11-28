@@ -30,7 +30,7 @@
   --sky:#2c2a25;--ground:#b8913f;--accent:#e2b85c;--on-ground:#1b1a17}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:56px}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
 body{margin:0;background:var(--paper);color:var(--ink);font:300 16px/1.6 var(--slab);-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-underline-offset:3px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
@@ -45,7 +45,18 @@ a{color:var(--accent);text-underline-offset:3px}
 .top nav{display:flex;gap:20px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
 .top nav a{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
 .top nav a b{color:var(--accent);font-weight:500}
-.top nav a:hover{color:var(--ink)}
+.top nav a:hover,.navbtn:hover{color:var(--ink)}
+.navbtn{font:400 12px var(--mono);color:var(--ink-2);background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
+.navbtn b{color:var(--accent);font-weight:500}.navbtn .caret{display:inline-block;transition:transform .2s}
+.navbtn[aria-expanded="true"] .caret{transform:rotate(180deg)}
+.top nav a,.navbtn{position:relative;padding:4px 0}
+.top nav [aria-current="true"]{color:var(--ink)}
+.top nav [aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--ground)}
+.vizmenu{position:fixed;z-index:25;background:var(--paper);border:1px solid var(--ink);min-width:300px;max-width:calc(100vw - 32px);padding:8px 0;box-shadow:0 12px 32px rgba(0,0,0,.12)}
+.vizmenu a{display:grid;grid-template-columns:52px 1fr;gap:6px;padding:9px 16px;color:var(--ink);text-decoration:none;font-size:14px}
+.vizmenu a span{font:400 12px var(--mono);color:var(--accent);padding-top:2px}
+.vizmenu a:hover,.vizmenu a:focus-visible,.vizmenu a[aria-current="true"]{background:var(--paper-2);outline:none}
+.hero-cta{display:inline-block;margin-top:30px;text-decoration:none}
 .theme{background:none;border:1px solid var(--rule);color:var(--ink-2);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:13px;flex:none}
 @media (max-width:640px){.brand{display:none}.top nav{margin-left:0;gap:16px}}
 
@@ -202,17 +213,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">ConTech Landscape</a>
-    <nav aria-label="Sections">
-      <a href="#landscape"><b>{A}</b> Landscape</a>
-      <a href="#lifecycle"><b>{B}</b> Lifecycle</a>
-      <a href="#overlaps"><b>{C}</b> Overlaps</a>
-      <a href="#directory"><b>{D}</b> Directory</a>
-      <a href="#submit"><b>{E}</b> Add a company</a>
-      <a href="#about"><b>{F}</b> About</a>
+    <nav aria-label="Sections" id="nav">
+      <a href="#landscape" data-sec="landscape"><b>{A}</b> Landscape</a>
+      <button type="button" class="navbtn" id="vizBtn" data-sec="viz" aria-expanded="false" aria-controls="vizMenu"><b>{B}</b> Visualizations <span class="caret" aria-hidden="true">▾</span></button>
+      <a href="#directory" data-sec="directory"><b>{C}</b> Directory</a>
+      <a href="#submit" data-sec="submit"><b>{D}</b> Add a company</a>
+      <a href="#about" data-sec="about"><b>{E}</b> About</a>
     </nav>
     <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">◐</button>
   </div>
 </header>
+<div class="vizmenu" id="vizMenu" hidden role="menu" aria-label="Visualizations"></div>
 
 <section class="hero" id="landscape">
   <div class="ground" aria-hidden="true"></div>
@@ -221,6 +232,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <h1>ConTech Landscape</h1>
       <p>An open, weekly-updated map of the technology companies building for architecture, engineering, construction and operations.</p>
       <div class="facts" id="facts"></div>
+      <a class="btn primary hero-cta" href="#submit">Add your company</a>
     </div>
     <figure class="skyline" id="skyline" style="margin:0" aria-describedby="figcap"></figure>
   </div>
@@ -228,9 +240,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="wrap"><p class="fig-cap label" id="figcap">Fig. 1 — One building per category, in lifecycle order, one floor per company. Open steel frames are companies added this week; dashed plots are categories with none yet. Select a building to filter the directory.</p></div>
 
 <main>
-<section class="block" id="lifecycle">
+<section class="block viz" id="lifecycle" data-title="Where the tools sit in a project">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{B}</div><div>
+    <div class="sec-head"><div class="idx">{B.1}</div><div>
       <h2>Where the tools sit in a project</h2>
       <p>Each row is a category and each column a project phase. The stronger the shade, the more companies offer that kind of tool for that phase. Companies span several categories and phases, so they count in every cell they belong to.</p>
     </div></div>
@@ -244,9 +256,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="block" id="overlaps">
+<section class="block viz" id="overlaps" data-title="How categories combine">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{C}</div><div>
+    <div class="sec-head"><div class="idx">{B.2}</div><div>
       <h2>How categories combine</h2>
       <p>Most companies sit in more than one category. Each column is one exact combination; the bar above it counts the companies with that combination and nothing else. Dots below show which categories are in it, and the bars on the right show each category's total.</p>
     </div></div>
@@ -257,7 +269,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block" id="directory">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{D}</div><div>
+    <div class="sec-head"><div class="idx">{C}</div><div>
       <h2>The directory</h2>
       <p>Every company, with what it does, who it serves and where it sits in the project lifecycle. <span id="asof"></span></p>
     </div></div>
@@ -278,7 +290,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block" id="submit">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{E}</div><div>
+    <div class="sec-head"><div class="idx">{D}</div><div>
       <h2>Add your company</h2>
       <p>Building for construction, design or property? Send the details and it will be reviewed for the next weekly update.</p>
     </div></div>
@@ -297,7 +309,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block" id="about">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{F}</div><div>
+    <div class="sec-head"><div class="idx">{E}</div><div>
       <h2>About the data</h2>
       <p>The full dataset is open under CC BY 4.0: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv and companies.json</a>. Corrections are welcome through GitHub issues or the email above.</p>
     </div></div>
@@ -362,6 +374,34 @@ addEventListener('hashchange',()=>{if(location.hash==='#submit')flash()});
 function showTpl(v){$('#tpl').hidden=!v;$('#showTpl').setAttribute('aria-expanded',v);$('#showTpl').textContent=v?'Hide template':'Show template'}
 $('#copyTpl').onclick=async()=>{try{await navigator.clipboard.writeText(TEMPLATE);toast('Template copied. Paste it into a new email to '+EMAIL)}catch(e){showTpl(true);toast('Couldn\'t copy automatically. Select the template instead')}};
 $('#showTpl').onclick=()=>showTpl($('#tpl').hidden);
+
+/* nav: smooth scrolling, visualizations menu, current-section highlight */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const go=(id,push=true)=>{const el=document.getElementById(id);if(!el)return;el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});if(push)history.pushState(null,'',location.search+'#'+id)};
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1);if(!id||!document.getElementById(id))return;e.preventDefault();closeMenu();go(id)});
+  const btn=$('#vizBtn'),menu=$('#vizMenu'),vizs=[...document.querySelectorAll('section.viz')];
+  menu.innerHTML=vizs.map(v=>`<a role="menuitem" href="#${v.id}" data-id="${v.id}"><span>${v.querySelector('.idx').textContent}</span>${esc(v.dataset.title)}</a>`).join('');
+  function place(){const r=btn.getBoundingClientRect(),hb=$('.top').getBoundingClientRect().bottom;menu.style.top=(hb+6)+'px';menu.style.left=Math.max(16,Math.min(r.left,innerWidth-menu.offsetWidth-16))+'px'}
+  function openMenu(){menu.hidden=false;btn.setAttribute('aria-expanded','true');place();menu.querySelector('a')?.focus({preventScroll:true})}
+  function closeMenu(){if(menu.hidden)return;menu.hidden=true;btn.setAttribute('aria-expanded','false')}
+  window.closeMenu=closeMenu;
+  btn.onclick=e=>{e.stopPropagation();menu.hidden?openMenu():closeMenu()};
+  document.addEventListener('click',e=>{if(!menu.contains(e.target)&&e.target!==btn)closeMenu()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){closeMenu();btn.focus()}
+    if(!menu.hidden&&(e.key==='ArrowDown'||e.key==='ArrowUp')){e.preventDefault();const items=[...menu.querySelectorAll('a')],i=items.indexOf(document.activeElement);items[(i+(e.key==='ArrowDown'?1:-1)+items.length)%items.length].focus()}});
+  addEventListener('resize',()=>{if(!menu.hidden)place()});
+  // scroll spy
+  const secs=[...document.querySelectorAll('#landscape, main section.block')];
+  let ticking=false;
+  function spy(){ticking=false;const y=$('.top').offsetHeight+40;let cur=secs[0];for(const s of secs)if(s.getBoundingClientRect().top<=y)cur=s;
+    const key=cur.classList.contains('viz')?'viz':cur.id;
+    document.querySelectorAll('#nav [data-sec]').forEach(n=>n.toggleAttribute('aria-current',false));
+    const n=document.querySelector(`#nav [data-sec="${key}"]`);if(n){n.setAttribute('aria-current','true');const nav=$('#nav'),l=n.offsetLeft-nav.offsetLeft;if(l<nav.scrollLeft||l+n.offsetWidth>nav.scrollLeft+nav.clientWidth)nav.scrollLeft=l-16}
+    menu.querySelectorAll('a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.id===cur.id))}
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(spy)}},{passive:true});
+  window.spy=spy;spy();
+})();
 
 /* data + state (filters live in the URL so views can be shared) */
 let D=[],sortK='date_added',dir=-1;
