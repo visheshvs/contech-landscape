@@ -1,5 +1,191 @@
 [
   {
+    "company": "Kestrel Labs",
+    "description": "Building code compliance software that runs inside Revit and checks a design against municipal codes in seconds, flagging violations with the relevant code section and suggested fixes. Used mainly by architecture firms, with early work toward municipal permitting.",
+    "category": [
+      "Design & Engineering",
+      "Sustainability & Compliance"
+    ],
+    "subcategory": [
+      "Permitting & code review",
+      "Regulatory & compliance"
+    ],
+    "customer": [
+      "Architect",
+      "Public Agency",
+      "Design-Builder"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "$2.2M Pre-seed (2026)",
+    "hq": "Denver, USA",
+    "website": "https://www.kestrellabs.com",
+    "linkedin": "",
+    "date_added": "2026-11-28"
+  },
+  {
+    "company": "Nomic",
+    "description": "AI agent platform for AEC firms that works with drawings, specs and models to review drawings against standards and codes, prepare submittals and RFIs, and now generate and revise native CAD drawings. Agents run inside Revit, AutoCAD and Procore with human approval of every change.",
+    "category": [
+      "Data AI & Integration Platforms",
+      "Design & Engineering"
+    ],
+    "subcategory": [
+      "AI agents & copilots",
+      "Model coordination & clash",
+      "Permitting & code review"
+    ],
+    "customer": [
+      "Architect",
+      "Structural Engineer",
+      "MEP Engineer",
+      "Civil Engineer",
+      "General Contractor"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Undisclosed strategic round from Aurecon and Arcadis (Sep 2026)",
+    "hq": "New York, USA",
+    "website": "https://www.nomic.ai",
+    "linkedin": "",
+    "date_added": "2026-11-28"
+  },
+  {
+    "company": "Prophetic",
+    "description": "Land acquisition and site feasibility software for homebuilders and developers that automates site plans, lot-yield estimates and entitlement research, and now drafts subdivision site plans.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Real Estate Development & Investment"
+    ],
+    "subcategory": [
+      "Site selection & feasibility",
+      "Development & underwriting"
+    ],
+    "customer": [
+      "Homebuilder",
+      "Owner / Developer",
+      "Civil Engineer"
+    ],
+    "phases": [
+      "Planning & Feasibility"
+    ],
+    "funding": "Seed, undisclosed (Apr 2025)",
+    "hq": "Portland, USA",
+    "website": "https://www.propheticsoftware.ai",
+    "linkedin": "",
+    "date_added": "2026-11-28"
+  },
+  {
+    "company": "qapture",
+    "description": "Laser-scanning firm that builds 3D digital twins of existing buildings and has launched qentin, an AI agent that lets facility teams search scans in natural language and detect and label assets.",
+    "category": [
+      "Property & Asset Management",
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Digital twin",
+      "Facility & maintenance",
+      "Reality capture & progress"
+    ],
+    "customer": [
+      "Facility / Property Manager",
+      "Owner / Developer"
+    ],
+    "phases": [
+      "Operations"
+    ],
+    "funding": "Not disclosed",
+    "hq": "Linz, Austria",
+    "website": "https://qapture.at",
+    "linkedin": "",
+    "date_added": "2026-11-28"
+  },
+  {
+    "company": "Rayon",
+    "description": "Browser-based collaborative design tool for interior and space planning, combining 2D drafting with a new 3D canvas, an AI agent that converts PDFs and lays out zones and furniture, and AI rendering.",
+    "category": [
+      "Design & Engineering"
+    ],
+    "subcategory": [
+      "BIM authoring",
+      "Generative & automated design"
+    ],
+    "customer": [
+      "Interior Designer",
+      "Architect",
+      "Facility / Property Manager"
+    ],
+    "phases": [
+      "Design"
+    ],
+    "funding": "€10M Series A (Sep 2026)",
+    "hq": "Paris, France",
+    "website": "https://www.rayon.design",
+    "linkedin": "",
+    "date_added": "2026-11-28"
+  },
+  {
+    "company": "Shackleton AI",
+    "description": "Agentic platform for development and construction management whose AI agents draft RFIs, chase submittals, write daily reports and flag budget variances against bids, budgets, change orders and commitments. Integrates with QuickBooks and Sage accounting systems.",
+    "category": [
+      "Project Management & Controls",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Project management suite",
+      "Cost management & controls",
+      "Documents RFIs & submittals",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "General Contractor",
+      "Owner / Developer",
+      "Construction Manager"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Preconstruction",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "$5M Seed (Nov 2026)",
+    "hq": "New York, USA",
+    "website": "https://www.shackleton.ai",
+    "linkedin": "",
+    "date_added": "2026-11-28"
+  },
+  {
+    "company": "Tendos",
+    "description": "AI platform for building materials manufacturers that finds relevant tenders, reads bills of quantities and specifications, matches requirements to the product catalog and drafts quotes and orders in the manufacturer's CRM and ERP.",
+    "category": [
+      "Bidding & Procurement",
+      "Supply Chain & Materials Commerce"
+    ],
+    "subcategory": [
+      "Procurement & quoting",
+      "Bid & tender management",
+      "Materials marketplace"
+    ],
+    "customer": [
+      "Supplier / Manufacturer",
+      "Distributor"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "€12M Seed (Oct 2026)",
+    "hq": "Munich, Germany",
+    "website": "https://www.tendos.ai",
+    "linkedin": "",
+    "date_added": "2026-11-28"
+  },
+  {
     "company": "Archiboost AI",
     "description": "AI platform that reviews drawing sets, combining PDFs with Revit model data, for code, coordination, specification and constructability issues, citing a source for each finding. It also offers a project copilot, RFI and submittal tracking, and a searchable detail library.",
     "category": [
@@ -221,6 +407,33 @@
     "date_added": "2026-08-12"
   },
   {
+    "company": "Kamai",
+    "description": "Kamai builds an AI takeoff engine that reads construction drawings, including scanned PDFs, to detect and measure rooms, openings and materials, and offers it as a plugin or API for estimating tools.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "AI agents & copilots",
+      "Data integration & APIs"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Seed, undisclosed (Jun 2026)",
+    "hq": "Be'er Sheva, Israel",
+    "website": "https://kamai.io",
+    "linkedin": "https://www.linkedin.com/company/105390294",
+    "date_added": "2026-08-12"
+  },
+  {
     "company": "Agave",
     "description": "Construction data integration company that began with a unified API linking contractors' ERP, accounting and project management systems. It now also offers AI agents for back-office work such as invoice matching, compliance, billing and financial reporting.",
     "category": [
@@ -244,6 +457,32 @@
     "hq": "San Francisco, United States",
     "website": "https://www.useagave.com",
     "linkedin": "https://www.linkedin.com/company/agave-api/",
+    "date_added": "2026-07-21"
+  },
+  {
+    "company": "Guthrie AI",
+    "description": "AI bid assistant for commercial glazing contractors that drafts scopes, runs takeoffs, prepares RFIs and vendor RFQs, levels quotes and assembles proposals, with a human estimating manager reviewing the AI's work.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating",
+      "Bid & tender management",
+      "Proposal generation"
+    ],
+    "customer": [
+      "Trade - Glazing",
+      "Supplier / Manufacturer"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "$4M Seed (Jul 2026)",
+    "hq": "Philadelphia, USA",
+    "website": "https://www.guthrieai.com/",
+    "linkedin": "https://www.linkedin.com/company/guthrie-ai/",
     "date_added": "2026-07-21"
   },
   {
@@ -1234,6 +1473,92 @@
     "date_added": "2026-07-15"
   },
   {
+    "company": "Cost-OS",
+    "description": "North American partner and reseller of the CostOS enterprise estimating software (developed by Nomitech), which supports estimates from early parametric classes through detailed line-item estimates with 2D/3D takeoff for construction, engineering and energy projects. The Memphis team also provides implementation and estimating expertise.",
+    "category": [
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Conceptual estimating",
+      "Detailed estimating",
+      "5D / model-based estimating",
+      "Quantity takeoff"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "General Contractor",
+      "Construction Manager",
+      "Civil Engineer"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Not disclosed",
+    "hq": "Memphis, USA",
+    "website": "https://cost-os.com",
+    "linkedin": "https://www.linkedin.com/company/cost-os-llc/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Countfire",
+    "description": "Cloud takeoff and estimating software for fire alarm, security, sprinkler and other M&E trades that automatically counts devices on drawings, checks detection coverage and prices the job. It is part of TAG Software Group within Valsoft.",
+    "category": [
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating"
+    ],
+    "customer": [
+      "Trade - Fire Protection",
+      "Trade - Electrical",
+      "Trade - Mechanical / HVAC",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Acquired by Valsoft (TAG Software Group); year not disclosed",
+    "hq": "London, UK",
+    "website": "https://www.countfire.com",
+    "linkedin": "https://www.linkedin.com/company/countfire",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Datagrid AI (formerly Toric)",
+    "description": "Agentic AI platform for construction and engineering teams that connects to project systems and runs agents for document search, submittal and RFI review, scope checks, prequalification and daily logs. Now part of Procore.",
+    "category": [
+      "Data AI & Integration Platforms",
+      "Project Management & Controls",
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "AI agents & copilots",
+      "Data integration & APIs",
+      "Documents RFIs & submittals",
+      "Subcontractor prequalification"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Trade - Other",
+      "Structural Engineer",
+      "MEP Engineer",
+      "Supplier / Manufacturer"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Acquired by Procore (2026)",
+    "hq": "San Francisco, USA",
+    "website": "https://datagrid.com",
+    "linkedin": "https://www.linkedin.com/company/datagrid-ai",
+    "date_added": "2026-07-15"
+  },
+  {
     "company": "Davis",
     "description": "Paris-based AI company that produces early-stage development studies for real estate projects, including feasibility, site analysis, massing and floor plans. Its own generative design models are paired with expert human review, and it is delivered as a service.",
     "category": [
@@ -1258,6 +1583,296 @@
     "hq": "Paris, France",
     "website": "https://meetdavis.com",
     "linkedin": "https://www.linkedin.com/company/davisai/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Digs",
+    "description": "AI-assisted collaboration platform for home builders and their suppliers that keeps plans, specs, selections, approvals and warranties in one place, automates tasks such as material takeoffs, and hands homeowners a digital model of their home.",
+    "category": [
+      "Project Management & Controls",
+      "Property & Asset Management",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Documents RFIs & submittals",
+      "Digital twin",
+      "Quantity takeoff",
+      "Residential builder software"
+    ],
+    "customer": [
+      "Homebuilder",
+      "Supplier / Manufacturer",
+      "Distributor",
+      "Homeowner"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "$25.3M Series A (Aug 2026)",
+    "hq": "Vancouver, USA",
+    "website": "https://digs.com",
+    "linkedin": "https://www.linkedin.com/company/digshq",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Drawer AI",
+    "description": "Generative AI estimating system for electrical contractors that reads 2D floor plans, PDFs, specs and schedules to produce takeoffs and cost estimates.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating",
+      "AI agents & copilots"
+    ],
+    "customer": [
+      "Trade - Electrical"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "$5M Seed (Oct 2024)",
+    "hq": "Austin, USA",
+    "website": "https://drawer.ai",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "dRofus",
+    "description": "Planning and data management platform for defining and validating building requirements (rooms, equipment, functions) across the project lifecycle, with two-way sync to Revit, Archicad and IFC and handover to FM via COBie. Owned by Nemetschek.",
+    "category": [
+      "Design & Engineering",
+      "Data AI & Integration Platforms",
+      "Property & Asset Management"
+    ],
+    "subcategory": [
+      "Model coordination & clash",
+      "Data integration & APIs",
+      "Facility & maintenance"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Public Agency",
+      "Architect",
+      "MEP Engineer",
+      "Interior Designer",
+      "General Contractor",
+      "Facility / Property Manager"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "Acquired by Nemetschek (2016)",
+    "hq": "Oslo, Norway",
+    "website": "https://www.drofus.com",
+    "linkedin": "https://www.linkedin.com/company/drofus",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Duranta",
+    "description": "Business software for landscaping and lawn care companies that measures properties from aerial imagery with AI and combines design, estimating, CRM and invoicing in a mobile app.",
+    "category": [
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating",
+      "Trade business management"
+    ],
+    "customer": [
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "$7M Seed (Jul 2025)",
+    "hq": "Seattle, USA",
+    "website": "https://www.getduranta.com",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "EDEN",
+    "description": "Sales software for residential HVAC and home-electrification contractors that generates instant, personalized homeowner quotes using property data, equipment matching and local rebates.",
+    "category": [
+      "Bidding & Procurement",
+      "Sustainability & Compliance"
+    ],
+    "subcategory": [
+      "Proposal generation",
+      "Energy & carbon",
+      "Trade business management"
+    ],
+    "customer": [
+      "Trade - Mechanical / HVAC",
+      "Homeowner"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Operations"
+    ],
+    "funding": "$3.7M Seed (Apr 2025)",
+    "hq": "Seattle, USA",
+    "website": "https://www.e-denhomes.com",
+    "linkedin": "https://www.linkedin.com/company/e-den-home-electrification",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Ediphi",
+    "description": "Cloud-based preconstruction estimating platform for general contractors that combines cost modeling, collaborative estimate building and live reporting. It also connects with takeoff tools so quantities flow straight into estimates.",
+    "category": [
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Conceptual estimating",
+      "Detailed estimating",
+      "Cost data & benchmarking",
+      "Preconstruction platform"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "$12M Series A (Mar 2024)",
+    "hq": "Boston, USA",
+    "website": "https://www.ediphi.com",
+    "linkedin": "https://www.linkedin.com/company/ediphi-com",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Equip",
+    "description": "Peruvian B2B platform that digitizes construction materials buying for small and mid-sized builders. It links contractors to a network of suppliers and bundles quoting, ordering, credit and delivery in one workflow.",
+    "category": [
+      "Supply Chain & Materials Commerce"
+    ],
+    "subcategory": [
+      "Materials marketplace",
+      "Logistics & delivery"
+    ],
+    "customer": [
+      "General Contractor",
+      "Homebuilder",
+      "Supplier / Manufacturer"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "$1.4M Seed (Aug 2025)",
+    "hq": "Lima, Peru",
+    "website": "https://www.equipconstruye.com",
+    "linkedin": "https://www.linkedin.com/company/equipconstruye",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Equipt.ai",
+    "description": "AI-driven asset and field service management software for equipment-heavy service companies. It automates the path from quote to job, tracks shop and field work in real time and helps reduce equipment downtime.",
+    "category": [
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Equipment & fleet",
+      "Trade business management"
+    ],
+    "customer": [
+      "Equipment Rental",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Construction",
+      "Operations"
+    ],
+    "funding": "$3.2M Seed (Mar 2025)",
+    "hq": "The Woodlands, USA",
+    "website": "https://www.equipt.ai",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Estimating Edge",
+    "description": "Takeoff and estimating software built for specialty subcontractors such as drywall, acoustical, flooring, painting, roofing and concrete. Products include a desktop estimating system, on-screen and smart takeoff tools and integrations with accounting software.",
+    "category": [
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating"
+    ],
+    "customer": [
+      "Trade - Drywall / Interiors",
+      "Trade - Painting / Finishes",
+      "Trade - Roofing",
+      "Trade - Concrete",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction"
+    ],
+    "funding": "Acquired by Foundation Software (2022)",
+    "hq": "Boynton Beach, USA",
+    "website": "https://www.estimatingedge.com",
+    "linkedin": "https://www.linkedin.com/company/estimating-edge",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "EverFence",
+    "description": "Tech-enabled residential fencing company that lets homeowners get instant quotes and buy fence projects online. Partner installers get a steady flow of jobs plus pricing, materials and back-office support.",
+    "category": [
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "Procurement & quoting",
+      "Trade business management"
+    ],
+    "customer": [
+      "Homeowner",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "$7M Series A (May 2024)",
+    "hq": "Newport Beach, USA",
+    "website": "https://www.everfence.com",
+    "linkedin": "https://www.linkedin.com/company/everfence",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "eviFile",
+    "description": "Web and mobile platform for capturing tamper-evident site evidence such as photos, forms and records on construction, infrastructure and utility projects. Contractors use it to prove work quality and compliance to clients and to report through dashboards.",
+    "category": [
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Inspections & QA/QC",
+      "Daily logs & field reporting"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Sitework / Civil",
+      "Owner / Developer",
+      "Public Agency"
+    ],
+    "phases": [
+      "Construction"
+    ],
+    "funding": "Not disclosed",
+    "hq": "Leeds, UK",
+    "website": "https://www.evifile.com",
+    "linkedin": "https://uk.linkedin.com/company/evifile",
     "date_added": "2026-07-15"
   },
   {
@@ -1289,6 +1904,325 @@
     "date_added": "2026-07-15"
   },
   {
+    "company": "Field Materials",
+    "description": "AI procurement software for contractors that digitizes quotes, purchase orders, delivery tickets and invoices for materials and equipment. It syncs the data into construction accounting systems and adds inventory and pricing insight.",
+    "category": [
+      "Bidding & Procurement",
+      "Construction Finance & Payments",
+      "Supply Chain & Materials Commerce"
+    ],
+    "subcategory": [
+      "Procurement & quoting",
+      "Construction accounting & ERP",
+      "Logistics & delivery"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Electrical",
+      "Trade - Mechanical / HVAC",
+      "Trade - Drywall / Interiors",
+      "Trade - Concrete",
+      "Trade - Sitework / Civil",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "$10.5M Series A (Apr 2025)",
+    "hq": "Charlotte, USA",
+    "website": "https://www.fieldmaterials.com",
+    "linkedin": "https://www.linkedin.com/company/fieldmaterials",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "FieldPulse",
+    "description": "Field service management software for HVAC, plumbing and electrical service businesses, covering scheduling, dispatch, estimates, invoicing and asset tracking. It adds AI tools that answer calls, book jobs and capture web leads.",
+    "category": [
+      "Project Management & Controls",
+      "Construction Finance & Payments"
+    ],
+    "subcategory": [
+      "Scheduling & planning",
+      "Payments & pay apps",
+      "Trade business management"
+    ],
+    "customer": [
+      "Trade - Mechanical / HVAC",
+      "Trade - Plumbing",
+      "Trade - Electrical"
+    ],
+    "phases": [
+      "Construction",
+      "Operations"
+    ],
+    "funding": "$50M Series C (Aug 2025)",
+    "hq": "Dallas, USA",
+    "website": "https://www.fieldpulse.com",
+    "linkedin": "https://www.linkedin.com/company/fieldpulse",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Firmus",
+    "description": "AI design review and risk analysis platform that scans construction drawings and specs to flag missing details, cross-discipline conflicts and scope gaps before bidding and building. It also compares drawing sets across design stages to catch changes.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Preconstruction platform",
+      "Risk & forecasting",
+      "Documents RFIs & submittals"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder",
+      "Owner / Developer",
+      "Architect"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Acquired by Bluebeam (2025)",
+    "hq": "Florida, USA",
+    "website": "https://www.firmus.ai",
+    "linkedin": "https://www.linkedin.com/company/firmusai",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Genia",
+    "description": "Generative AI tool for structural engineering that takes architectural PDFs or CAD files and proposes several physics-checked structural framing options with material lists. It aims to cut engineering time and material use, with an emphasis on wood-frame buildings.",
+    "category": [
+      "Design & Engineering"
+    ],
+    "subcategory": [
+      "Generative & automated design",
+      "Engineering analysis"
+    ],
+    "customer": [
+      "Structural Engineer",
+      "Owner / Developer",
+      "General Contractor",
+      "Homebuilder"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "$3M Pre-seed (Feb 2025)",
+    "hq": "Los Angeles, USA",
+    "website": "https://www.genia.design",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "GRAITEC",
+    "description": "French software developer and Autodesk Platinum Partner that builds structural analysis, steel detailing and Revit/AutoCAD add-on tools, and resells Autodesk products with BIM training, consulting and support.",
+    "category": [
+      "Design & Engineering"
+    ],
+    "subcategory": [
+      "BIM authoring",
+      "Engineering analysis"
+    ],
+    "customer": [
+      "Architect",
+      "Structural Engineer",
+      "MEP Engineer",
+      "General Contractor",
+      "Trade - Steel",
+      "Supplier / Manufacturer"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "PE-backed (Seven2 majority stake, 2019)",
+    "hq": "Paris, France",
+    "website": "https://graitec.com/",
+    "linkedin": "https://www.linkedin.com/company/graitec/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "GreenLite",
+    "description": "Permitting company that pairs AI-assisted plan review with third-party code compliance experts to help developers and builders move projects through feasibility, plan review and permit approval faster.",
+    "category": [
+      "Design & Engineering",
+      "Sustainability & Compliance"
+    ],
+    "subcategory": [
+      "Permitting & code review",
+      "Regulatory & compliance"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Homebuilder",
+      "General Contractor",
+      "Public Agency"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "$49.5M Series B (Sep 2025)",
+    "hq": "New York, USA",
+    "website": "https://greenlite.com/",
+    "linkedin": "https://www.linkedin.com/company/greenlite-technologies/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Haaven",
+    "description": "Amsterdam homebuilding platform where buyers choose or customise prefab homes and garden houses, with Haaven coordinating vetted architects, offsite builders and contractors along with budget and timeline.",
+    "category": [
+      "Offsite & Industrialized Construction"
+    ],
+    "subcategory": [
+      "Prefab & modular",
+      "Residential builder software"
+    ],
+    "customer": [
+      "Homeowner"
+    ],
+    "phases": [
+      "Design",
+      "Construction"
+    ],
+    "funding": "€1.1M Pre-seed (Jun 2024)",
+    "hq": "Amsterdam, Netherlands",
+    "website": "https://haaven.com/",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Handoff AI",
+    "description": "AI assistant for residential remodelers and contractors that produces estimates and handles back-office work, alongside CRM, project management and financial tools in one platform.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Project Management & Controls",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Detailed estimating",
+      "Project management suite",
+      "AI agents & copilots",
+      "Residential builder software"
+    ],
+    "customer": [
+      "Remodeler",
+      "Homebuilder",
+      "Trade - Other",
+      "Homeowner"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "$5.8M strategic round (Jul 2025)",
+    "hq": "Austin, USA",
+    "website": "https://www.handoff.ai/",
+    "linkedin": "https://www.linkedin.com/company/handoff-ai/",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "HCSS",
+    "description": "Software for heavy civil and infrastructure contractors covering estimating and bidding, job costing, field reporting, safety and fleet management, from preconstruction through project closeout.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Project Management & Controls",
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Detailed estimating",
+      "Cost management & controls",
+      "Daily logs & field reporting",
+      "Equipment & fleet"
+    ],
+    "customer": [
+      "General Contractor",
+      "Trade - Sitework / Civil",
+      "Trade - Concrete"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "Acquired by Nemetschek Group (2026)",
+    "hq": "Sugar Land, USA",
+    "website": "https://www.hcss.com/",
+    "linkedin": "https://www.linkedin.com/company/hcss",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Hero Software",
+    "description": "German cloud and mobile business software for small trade firms, covering quotes and cost calculation, scheduling boards, time tracking, invoicing, payments and links to supplier catalogues and accounting tools.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Project Management & Controls",
+      "Construction Finance & Payments"
+    ],
+    "subcategory": [
+      "Trade business management",
+      "Detailed estimating",
+      "Scheduling & planning",
+      "Construction accounting & ERP"
+    ],
+    "customer": [
+      "Trade - Plumbing",
+      "Trade - Mechanical / HVAC",
+      "Trade - Electrical",
+      "Trade - Roofing",
+      "Trade - Drywall / Interiors",
+      "Trade - Painting / Finishes",
+      "Trade - Glazing",
+      "Trade - Sitework / Civil",
+      "Trade - Other",
+      "Facility / Property Manager"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "€40M Series B (Jul 2024)",
+    "hq": "Hanover, Germany",
+    "website": "https://hero-software.de/",
+    "linkedin": "https://de.linkedin.com/company/herosoftware-gmbh",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Higharc",
+    "description": "Cloud platform for production homebuilders that uses AI trained on residential plans to generate 3D home models, construction documents, takeoffs and cost estimates, plus buyer sales tools and supplier pricing links.",
+    "category": [
+      "Design & Engineering",
+      "Preconstruction & Estimating"
+    ],
+    "subcategory": [
+      "BIM authoring",
+      "Generative & automated design",
+      "5D / model-based estimating",
+      "Residential builder software"
+    ],
+    "customer": [
+      "Homebuilder",
+      "Supplier / Manufacturer",
+      "Distributor",
+      "Homeowner"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "$95M Series C (Jul 2026)",
+    "hq": "Durham, USA",
+    "website": "https://www.higharc.com/",
+    "linkedin": "https://www.linkedin.com/company/higharc",
+    "date_added": "2026-07-15"
+  },
+  {
     "company": "Illoca",
     "description": "AI-native architectural design software that turns sketches, diagrams, renderings or text prompts into editable 2D and 3D building models exportable to Revit. It has also launched an agentic 3D modeling workspace.",
     "category": [
@@ -1314,6 +2248,273 @@
     "hq": "United States",
     "website": "https://illoca.com/",
     "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Ineight",
+    "description": "InEight provides a connected suite of project controls software for capital construction, covering estimating, scheduling, cost control, change, contracts, documents, model-based workflows and completions. It is used by owners, contractors and engineers on large infrastructure, energy and industrial programs.",
+    "category": [
+      "Project Management & Controls",
+      "Preconstruction & Estimating",
+      "Data AI & Integration Platforms"
+    ],
+    "subcategory": [
+      "Cost management & controls",
+      "Detailed estimating",
+      "5D / model-based estimating",
+      "Scheduling & planning"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "Public Agency",
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder",
+      "Civil Engineer",
+      "Trade - Sitework / Civil"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "Subsidiary of Kiewit (not separately funded)",
+    "hq": "Scottsdale, USA",
+    "website": "https://ineight.com",
+    "linkedin": "https://www.linkedin.com/company/ineight",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "INGENIOUS.BUILD",
+    "description": "INGENIOUS.BUILD is a project and portfolio management platform for real estate development and construction, combining budgets, commitments and forecasts with RFIs, submittals, schedules, construction administration and capital planning. It targets owners, developers and their project teams.",
+    "category": [
+      "Project Management & Controls",
+      "Real Estate Development & Investment"
+    ],
+    "subcategory": [
+      "Project management suite",
+      "Cost management & controls",
+      "Documents RFIs & submittals",
+      "Development & underwriting"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "Investor / Lender",
+      "Architect",
+      "General Contractor",
+      "Construction Manager"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Design",
+      "Preconstruction",
+      "Construction",
+      "Operations"
+    ],
+    "funding": "$37M Series A (Nov 2023)",
+    "hq": "Nashville, USA",
+    "website": "https://www.ingenious.build",
+    "linkedin": "https://www.linkedin.com/company/ingeniousio",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "insightsoftware",
+    "description": "insightsoftware sells financial reporting, planning and analytics software, including Excel-based reporting packages for construction finance teams that connect to construction ERPs such as Viewpoint, Spectrum, Sage and COINS for job cost, cash flow and profitability reporting.",
+    "category": [
+      "Data AI & Integration Platforms",
+      "Construction Finance & Payments"
+    ],
+    "subcategory": [
+      "Analytics & BI",
+      "Construction accounting & ERP"
+    ],
+    "customer": [
+      "General Contractor",
+      "Construction Manager",
+      "Trade - Other"
+    ],
+    "phases": [
+      "Construction",
+      "Operations"
+    ],
+    "funding": "~$1B investment from Hg (Jul 2021)",
+    "hq": "Raleigh, USA",
+    "website": "https://insightsoftware.com",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Installio",
+    "description": "Installio is a London-based clean energy installer that pairs its own heat pump engineering teams with a project management platform for large retrofit programmes, giving energy suppliers, housebuilders and housing associations visibility into install progress and compliance.",
+    "category": [
+      "Sustainability & Compliance",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Energy & carbon",
+      "Project management suite"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Homebuilder",
+      "Homeowner",
+      "Trade - Mechanical / HVAC"
+    ],
+    "phases": [
+      "Construction",
+      "Operations"
+    ],
+    "funding": "£1.5M Seed (Nov 2025)",
+    "hq": "London, UK",
+    "website": "https://installio.co.uk",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "JobNimbus",
+    "description": "JobNimbus is a CRM and job management platform for roofing and exterior contractors, covering leads, estimates, job workflows, supplier ordering, payments and homeowner financing, with an enterprise tier for multi-location operators.",
+    "category": [
+      "Project Management & Controls",
+      "Construction Finance & Payments"
+    ],
+    "subcategory": [
+      "Trade business management",
+      "Project management suite",
+      "Payments & pay apps"
+    ],
+    "customer": [
+      "Trade - Roofing",
+      "Trade - Other",
+      "Remodeler"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "$330M growth investment from Sumeru Equity Partners (Nov 2024)",
+    "hq": "Lehi, USA",
+    "website": "https://www.jobnimbus.com",
+    "linkedin": "https://www.linkedin.com/company/JobNimbus",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Join",
+    "description": "Join is a preconstruction decision platform that tracks cost trends, design decisions, risks and schedule impacts through the design phase, giving owners, contractors and design teams a shared record of how the budget evolves.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Preconstruction platform",
+      "Cost data & benchmarking",
+      "Risk & forecasting",
+      "Cost management & controls"
+    ],
+    "customer": [
+      "Owner / Developer",
+      "Owner's Rep / PM",
+      "Architect",
+      "General Contractor",
+      "Construction Manager",
+      "Design-Builder"
+    ],
+    "phases": [
+      "Design",
+      "Preconstruction"
+    ],
+    "funding": "Undisclosed strategic investment from DPR (WND Ventures) and STO Building Group (Sep 2025)",
+    "hq": "Oakland, USA",
+    "website": "https://join.build",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Kai",
+    "description": "Kai is an AI renovation planning tool that analyzes photos and videos of a property to scope the work and produce SKU-level material lists and cost estimates, which can be ordered through The Home Depot.",
+    "category": [
+      "Preconstruction & Estimating",
+      "Bidding & Procurement"
+    ],
+    "subcategory": [
+      "Quantity takeoff",
+      "Detailed estimating",
+      "Procurement & quoting",
+      "Residential builder software"
+    ],
+    "customer": [
+      "Remodeler",
+      "Investor / Lender",
+      "Homeowner"
+    ],
+    "phases": [
+      "Planning & Feasibility",
+      "Preconstruction"
+    ],
+    "funding": "$10M at launch (Oct 2025)",
+    "hq": "USA",
+    "website": "https://kai.pro",
+    "linkedin": "",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Kaliun",
+    "description": "Kaliun is an AI-first CRM and job management platform for residential contractors, covering proposals, project and milestone tracking, subcontractor coordination, expense tracking, invoicing and client communication.",
+    "category": [
+      "Project Management & Controls"
+    ],
+    "subcategory": [
+      "Project management suite",
+      "Residential builder software"
+    ],
+    "customer": [
+      "General Contractor",
+      "Remodeler",
+      "Homebuilder"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "$250K angel (Mar 2026)",
+    "hq": "Tampa, USA",
+    "website": "https://kaliun.com",
+    "linkedin": "https://www.linkedin.com/company/kaliun",
+    "date_added": "2026-07-15"
+  },
+  {
+    "company": "Kojo",
+    "description": "Kojo is a materials procurement and inventory platform for specialty contractors, linking field requests, purchasing quotes, warehouse stock, tool tracking, vendor EDI and invoice matching in one system.",
+    "category": [
+      "Bidding & Procurement",
+      "Supply Chain & Materials Commerce",
+      "Field Operations & Jobsite"
+    ],
+    "subcategory": [
+      "Procurement & quoting",
+      "Logistics & delivery",
+      "Equipment & fleet"
+    ],
+    "customer": [
+      "Trade - Electrical",
+      "Trade - Mechanical / HVAC",
+      "Trade - Plumbing",
+      "Trade - Concrete",
+      "Trade - Drywall / Interiors",
+      "Trade - Glazing",
+      "Trade - Roofing",
+      "Trade - Other",
+      "Distributor"
+    ],
+    "phases": [
+      "Preconstruction",
+      "Construction"
+    ],
+    "funding": "$10M Series C extension from Wesco (Oct 2025)",
+    "hq": "San Francisco, USA",
+    "website": "https://www.usekojo.com",
+    "linkedin": "https://www.linkedin.com/company/kojotechnologies",
     "date_added": "2026-07-15"
   }
 ]
