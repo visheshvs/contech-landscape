@@ -4,60 +4,228 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ConTech Landscape — AECO technology directory</title>
+<meta name="description" content="An open, weekly-updated directory of technology companies across architecture, engineering, construction and operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f7f7f4;--fg:#1d2420;--mut:#66706a;--line:#dfe2dc;--acc:#2f5d46;--chip:#e8eee9;--card:#fff}
-@media (prefers-color-scheme:dark){:root{--bg:#141816;--fg:#e8ece9;--mut:#9aa39d;--line:#2a312d;--acc:#8fc3a5;--chip:#22302a;--card:#1b201d}}
-*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--fg)}
-header,main{max-width:1240px;margin:auto;padding:0 24px}header{padding-top:28px}h1{margin:0 0 4px;font-size:24px}
-.sub{color:var(--mut)}.stats{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.stat{border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:140px}
-.stat b{display:block;font-size:22px}.stat span{color:var(--mut);font-size:12px}
-.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-input,select,button{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
-input{flex:1;min-width:220px}select option{color:#000}button{cursor:pointer}
-.btn{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:600}
-table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;color:var(--mut);cursor:pointer;user-select:none;white-space:nowrap}td.co{font-weight:600;white-space:nowrap}
-.chip{display:inline-block;background:var(--chip);border-radius:10px;padding:1px 8px;margin:1px 2px 1px 0;font-size:12px;white-space:nowrap}
-.chip.s{background:transparent;border:1px solid var(--line)}
-a{color:var(--acc)}.mut{color:var(--mut)}footer{color:var(--mut);font-size:12px;margin:24px 0 40px}
-.submit{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:16px 18px;margin:18px 0}
-.submit h2{margin:0 0 6px;font-size:16px}.submit .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-pre{white-space:pre-wrap;background:var(--chip);border-radius:8px;padding:12px;font-size:12.5px;margin:10px 0 0;display:none}
-.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);opacity:0;pointer-events:none;display:flex;gap:10px;align-items:center;background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:13.5px;transition:opacity .2s,transform .2s}
-.toast.show{opacity:1;transform:translate(-50%,0)}.toast .tick{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--acc);color:var(--bg);font-size:12px;font-weight:700}
-.submit{scroll-margin-top:16px;transition:box-shadow .3s,border-color .3s}.submit.flash{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 30%,transparent)}
+/* ---------- Design tokens ---------- */
+:root{
+  --paper:#f2eee3;      /* warm cream page */
+  --paper-2:#e9e3d3;    /* recessed panels */
+  --ink:#2b2b2b;        /* text + buildings */
+  --ink-2:#6b675e;      /* secondary text */
+  --rule:#cfc7b4;       /* hairlines */
+  --sky:#9bbdb5;        /* hero sky (sage) */
+  --ground:#e6331a;     /* hero ground (vermilion), also the accent */
+  --sun:#f2eee3;
+  --accent:#c92b14;     /* accent for text/links on paper (AA contrast) */
+  --on-ground:#f6efe2;
+  --shadow:0,0,0;
+  --slab:"Roboto Slab",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#16212e;--paper-2:#1d2b3b;--ink:#ece6d8;--ink-2:#a3a9ad;--rule:#33445a;
+  --sky:#1f3a52;--ground:#c63a22;--sun:#ece6d8;--accent:#ff8a6b;--on-ground:#f6efe2;--shadow:0,0,0}}
+:root[data-theme="dark"]{
+  --paper:#16212e;--paper-2:#1d2b3b;--ink:#ece6d8;--ink-2:#a3a9ad;--rule:#33445a;
+  --sky:#1f3a52;--ground:#c63a22;--sun:#ece6d8;--accent:#ff8a6b;--on-ground:#f6efe2;--shadow:0,0,0}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{margin:0;background:var(--paper);color:var(--ink);font:300 16px/1.6 var(--slab);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+.mono,.label{font-family:var(--mono)}
+.label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:400}
+
+/* ---------- Top bar (Accurat-style lettered index) ---------- */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:52px}
+.brand{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap}
+.top nav{display:flex;gap:20px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.top nav a{font-family:var(--mono);font-size:12px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.top nav a b{color:var(--accent);font-weight:500}
+.top nav a:hover{color:var(--ink)}
+.theme{background:none;border:1px solid var(--rule);color:var(--ink-2);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:13px;flex:none}
+@media (max-width:640px){.brand{display:none}.top nav{margin-left:0;gap:16px}}
+
+/* ---------- Hero: data skyline ---------- */
+.hero{position:relative;background:var(--sky);overflow:hidden}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;min-height:500px}
+.hero-copy{align-self:center;padding:56px 0 calc(var(--groundH) + 40px)}
+.hero h1{margin:0 0 22px;font-weight:400;font-size:clamp(22px,2.6vw,30px);letter-spacing:.18em;text-transform:uppercase;line-height:1.3}
+.hero p{margin:0 0 26px;font-size:clamp(17px,1.6vw,20px);letter-spacing:.03em;max-width:30ch}
+.facts{display:flex;gap:28px;flex-wrap:wrap}
+.facts div{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--ink) 72%,var(--sky))}
+.facts b{display:block;font-family:var(--slab);font-weight:400;font-size:30px;letter-spacing:0;color:var(--ink);line-height:1.1}
+.skyline{position:relative;order:-1;min-height:420px}
+.skyline svg{position:absolute;left:0;right:0;bottom:0;width:100%;overflow:visible}
+.ground{position:absolute;left:0;right:0;bottom:0;height:var(--groundH);background:var(--ground);border-top:4px solid var(--paper)}
+:root{--groundH:132px}
+.bar{cursor:pointer;transition:opacity .2s}
+.bar rect.b{fill:var(--ink);transition:fill .2s}
+.bar rect.hit{fill:transparent}
+.bar.empty rect.b{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 3;opacity:.6}
+.bar text{font-family:var(--mono);font-size:11px;fill:var(--ink)}
+.bar text.lab{fill:var(--on-ground);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.skyline.has-sel .bar:not(.sel){opacity:.35}
+.bar:hover rect.b,.bar:focus-visible rect.b,.bar.sel rect.b{fill:var(--paper)}
+.bar:focus{outline:none}
+.fig-cap{padding:14px 0 0;max-width:none}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:0;min-height:0}
+  .hero-copy{padding:40px 0 8px;order:-2}
+  .skyline{min-height:360px}
+}
+
+/* ---------- Sections ---------- */
+section.block{padding:88px 0 40px}
+.sec-head{display:grid;grid-template-columns:120px 1fr;gap:24px;border-top:1px solid var(--ink);padding-top:18px;margin-bottom:36px}
+.sec-head .idx{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.sec-head h2{margin:0;font-weight:400;font-size:clamp(24px,3vw,34px);line-height:1.2;letter-spacing:.01em}
+.sec-head p{margin:10px 0 0;color:var(--ink-2);max-width:62ch}
+@media (max-width:640px){.sec-head{grid-template-columns:1fr;gap:6px}section.block{padding-top:56px}}
+
+/* ---------- Directory ---------- */
+.controls{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px}
+.field{display:flex;flex-direction:column;gap:4px;min-width:170px;flex:1}
+.field.search{flex:2.2;min-width:240px}
+@media (max-width:640px){.controls{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}.field{min-width:0}.field.search{grid-column:1/-1}}
+.field select,.field input{font:400 15px var(--slab);color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--ink);padding:6px 0;border-radius:0;outline:none;appearance:none;-webkit-appearance:none}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 9px) 55%,calc(100% - 4px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:20px;cursor:pointer}
+.field select option{color:#111;background:#fff}
+.field input:focus,.field select:focus{border-bottom-color:var(--accent)}
+.status{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0 6px}
+.clear{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.tbl{width:100%;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--ink-2);text-align:left;padding:12px 10px;border-bottom:1px solid var(--ink);white-space:nowrap}
+th[data-k]{cursor:pointer;user-select:none}th[data-k]:hover{color:var(--ink)}
+th .arr{color:var(--accent)}
+td{padding:16px 10px;border-bottom:1px solid var(--rule);vertical-align:top;font-size:14.5px}
+td.co{font-weight:600;font-size:16px;white-space:nowrap}
+td.co .links{display:block;margin-top:6px;font:400 11px var(--mono);letter-spacing:.06em}
+td.co .links a{margin-right:10px}
+td.desc{width:28%;min-width:240px;color:var(--ink)}
+td.num{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.tag{display:inline-block;font:400 11px/1.4 var(--mono);border:1px solid var(--ink);padding:1px 6px;margin:0 4px 4px 0}
+.tag.s{border-color:var(--rule);color:var(--ink-2)}
+.new{font:500 10px var(--mono);letter-spacing:.1em;color:var(--paper);background:var(--accent);padding:1px 5px;margin-left:6px;vertical-align:2px}
+@media (max-width:760px){
+  table{min-width:0}thead{display:none}
+  tr{display:block;border-bottom:1px solid var(--ink);padding:14px 0}
+  td{display:block;border:0;padding:4px 0}td.co{white-space:normal}
+  td[data-h]:before{content:attr(data-h);display:block;font:400 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
+}
+
+/* ---------- Submit ---------- */
+.submit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.submit-grid p{margin:0 0 18px;max-width:46ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:400 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--accent)}.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+pre{white-space:pre-wrap;background:var(--paper-2);padding:18px;font:12.5px/1.6 var(--mono);margin:0;border-left:3px solid var(--accent)}
+#submit{transition:background .4s}#submit.flash{background:color-mix(in srgb,var(--ground) 10%,var(--paper))}
+@media (max-width:760px){.submit-grid{grid-template-columns:1fr;gap:24px}}
+
+footer{border-top:1px solid var(--ink);margin-top:72px;padding:22px 0 48px;font-size:13px;color:var(--ink-2)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:var(--ink);color:var(--paper);padding:12px 18px;font:400 12.5px var(--mono);transition:opacity .2s,transform .2s;z-index:30;max-width:calc(100vw - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
-<header>
-<h1>ConTech Landscape</h1>
-<div class="sub">An open, weekly-updated directory of technology companies across the AECO ecosystem (architecture, engineering, construction and operations), including property tech. <span id="asof"></span></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">ConTech Landscape</a>
+    <nav aria-label="Sections">
+      <a href="#landscape"><b>{A}</b> Landscape</a>
+      <a href="#directory"><b>{B}</b> Directory</a>
+      <a href="#submit"><b>{C}</b> Add a company</a>
+      <a href="#about"><b>{D}</b> About</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
 </header>
+
+<section class="hero" id="landscape">
+  <div class="ground" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy" id="top">
+      <h1>ConTech Landscape</h1>
+      <p>An open, weekly-updated map of the technology companies building for architecture, engineering, construction and operations.</p>
+      <div class="facts" id="facts"></div>
+    </div>
+    <figure class="skyline" id="skyline" style="margin:0" aria-describedby="figcap"></figure>
+  </div>
+</section>
+<div class="wrap"><p class="fig-cap label" id="figcap">Fig. 1 — One building per category, in lifecycle order. Height is the number of companies; dashed outlines are categories with none yet. Select a building to filter the directory.</p></div>
+
 <main>
-<section class="submit" id="submit">
-<h2>Add your company</h2>
-<div class="mut">Building for construction, design or property? Email the details and your company will be reviewed for the next weekly update.</div>
-<div class="row">
-<button type="button" class="btn" id="copyTpl">Copy email template</button>
-<button type="button" id="showTpl">Show template</button>
-</div>
-<div class="mut" style="margin-top:8px;font-size:12.5px">Paste it into a new email to <b>visheshvikramsingh@gmail.com</b>, keeping the subject line as is.</div>
-<pre id="tpl"></pre>
+<section class="block" id="directory">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{B}</div><div>
+      <h2>The directory</h2>
+      <p>Every company, with what it does, who it serves and where it sits in the project lifecycle. <span id="asof"></span></p>
+    </div></div>
+
+    <div class="controls">
+      <label class="field search"><span class="label">Search</span><input id="q" placeholder="Company, product, subcategory, city…"></label>
+      <label class="field"><span class="label">Category</span><select id="cat"><option value="">All categories</option></select></label>
+      <label class="field"><span class="label">Customer</span><select id="cust"><option value="">All customers</option></select></label>
+      <label class="field"><span class="label">Phase</span><select id="phase"><option value="">All phases</option></select></label>
+    </div>
+    <div class="status label"><span id="count" aria-live="polite"></span><button class="clear label" id="clear" type="button" hidden>Clear filters</button></div>
+
+    <div class="tbl"><table><thead><tr>
+      <th data-k="company">Company</th><th>What it does</th><th>Category</th><th>Customers</th><th data-k="funding">Funding</th><th data-k="hq">HQ</th><th data-k="date_added">Added</th>
+    </tr></thead><tbody id="rows"></tbody></table></div>
+  </div>
 </section>
 
-<div class="stats" id="stats"></div>
-<div class="controls">
-<input id="q" placeholder="Search company, description, subcategory…" aria-label="Search">
-<select id="cat" aria-label="Category"><option value="">All categories</option></select>
-<select id="cust" aria-label="Customer"><option value="">All customers</option></select>
-<select id="phase" aria-label="Phase"><option value="">All phases</option></select>
-</div>
-<table><thead><tr>
-<th data-k="company">Company</th><th>Description</th><th>Category</th><th>Customer</th><th data-k="funding">Funding</th><th data-k="hq">HQ</th><th data-k="date_added">Added</th>
-</tr></thead><tbody id="rows"></tbody></table>
-<footer>Data: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv · companies.json</a>, CC BY 4.0. Corrections welcome via GitHub issues or the email above.<br>This website and database are created and managed by <a href="https://www.visheshvs.com/about" target="_blank" rel="noopener">Vishesh Vikram Singh</a>.</footer>
+<section class="block" id="submit">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{C}</div><div>
+      <h2>Add your company</h2>
+      <p>Building for construction, design or property? Send the details and it will be reviewed for the next weekly update.</p>
+    </div></div>
+    <div class="submit-grid">
+      <div>
+        <p>Copy the template, paste it into a new email to <b>visheshvikramsingh@gmail.com</b> and keep the subject line as it is. Submissions are checked against the company's own website before they go live.</p>
+        <div class="btns">
+          <button type="button" class="btn primary" id="copyTpl">Copy email template</button>
+          <button type="button" class="btn" id="showTpl" aria-expanded="false">Show template</button>
+        </div>
+      </div>
+      <pre id="tpl" hidden></pre>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{D}</div><div>
+      <h2>About the data</h2>
+      <p>The full dataset is open under CC BY 4.0: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv and companies.json</a>. Corrections are welcome through GitHub issues or the email above.</p>
+    </div></div>
+  </div>
+</section>
 </main>
-<div class="toast" id="toast" role="status" aria-live="polite"><span class="tick">✓</span><span id="toastMsg"></span></div>
+
+<footer><div class="wrap">
+  <span>Created and managed by <a href="https://www.visheshvs.com/about" target="_blank" rel="noopener">Vishesh Vikram Singh</a>.</span>
+  <span class="mono" id="foot-asof"></span>
+</div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
 const EMAIL='visheshvikramsingh@gmail.com', SUBJECT='[ConTech Landscape] Company submission: <Company name>';
 const TEMPLATE=`To: ${EMAIL}
@@ -74,34 +242,131 @@ Customers (e.g. General Contractor, Architect, Owner / Developer, Trade - Electr
 Project phases (Planning & Feasibility / Design / Preconstruction / Construction / Operations):
 Latest funding (round, amount, date), if public:
 Your name and role:`;
-const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-$('#tpl').textContent=TEMPLATE;
-let tt;function toast(t){$('#toastMsg').textContent=t;const e=$('#toast');e.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('show'),2600)}
-function flash(){const s=$('#submit');s.classList.remove('flash');void s.offsetWidth;s.classList.add('flash');setTimeout(()=>s.classList.remove('flash'),1600)}
-window.addEventListener('hashchange',()=>{if(location.hash==='#submit')flash()});if(location.hash==='#submit')flash();
-async function copy(t,msg){try{await navigator.clipboard.writeText(t);toast(msg)}catch(e){$('#tpl').style.display='block';toast('Couldn\'t copy automatically. Select the template below instead')}}
-$('#copyTpl').onclick=()=>copy(TEMPLATE,'Template copied. Paste it into a new email to '+EMAIL);
-$('#showTpl').onclick=()=>{const p=$('#tpl');p.style.display=p.style.display==='block'?'none':'block'};
 
+// All categories in lifecycle order, with short labels for the skyline.
+const CATS=[
+ ['Real Estate Development & Investment','Development'],
+ ['Design & Engineering','Design & Eng.'],
+ ['Preconstruction & Estimating','Precon & Est.'],
+ ['Bidding & Procurement','Bidding'],
+ ['Project Management & Controls','Project Mgmt'],
+ ['Field Operations & Jobsite','Field Ops'],
+ ['Offsite & Industrialized Construction','Offsite'],
+ ['Supply Chain & Materials Commerce','Supply Chain'],
+ ['Construction Finance & Payments','Finance'],
+ ['Workforce & Safety','Workforce'],
+ ['Sustainability & Compliance','Sustainability'],
+ ['Property & Asset Management','Property Mgmt'],
+ ['Smart Buildings & Facilities','Smart Bldgs'],
+ ['Data AI & Integration Platforms','Data & AI'],
+];
+const PHASES=['Planning & Feasibility','Design','Preconstruction','Construction','Operations'];
+
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* theme toggle */
+(function(){let t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t)document.documentElement.dataset.theme=t;
+$('#theme').onclick=()=>{const cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}}})();
+
+/* submit panel */
+$('#tpl').textContent=TEMPLATE;
+let tt;function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('show'),2800)}
+function flash(){const s=$('#submit');s.classList.add('flash');setTimeout(()=>s.classList.remove('flash'),1400)}
+addEventListener('hashchange',()=>{if(location.hash==='#submit')flash()});
+function showTpl(v){$('#tpl').hidden=!v;$('#showTpl').setAttribute('aria-expanded',v);$('#showTpl').textContent=v?'Hide template':'Show template'}
+$('#copyTpl').onclick=async()=>{try{await navigator.clipboard.writeText(TEMPLATE);toast('Template copied. Paste it into a new email to '+EMAIL)}catch(e){showTpl(true);toast('Couldn\'t copy automatically. Select the template instead')}};
+$('#showTpl').onclick=()=>showTpl($('#tpl').hidden);
+
+/* data + state (filters live in the URL so views can be shared) */
 let D=[],sortK='date_added',dir=-1;
+const S={q:'',cat:'',cust:'',phase:''};
+const NEW_DAYS=8;
+function readURL(){const p=new URLSearchParams(location.search);for(const k in S)S[k]=p.get(k)||''}
+function writeURL(){const p=new URLSearchParams();for(const k in S)if(S[k])p.set(k,S[k]);const qs=p.toString();history.replaceState(null,'',(qs?'?'+qs:location.pathname)+location.hash)}
+
 fetch('companies.json').then(r=>r.json()).then(d=>{D=d;init()});
 const uniq=k=>[...new Set(D.flatMap(x=>x[k]||[]))].sort();
+
 function init(){
- uniq('category').forEach(a=>$('#cat').add(new Option(a,a)));
- uniq('customer').forEach(a=>$('#cust').add(new Option(a,a)));
- ['Planning & Feasibility','Design','Preconstruction','Construction','Operations'].filter(p=>uniq('phases').includes(p)).forEach(a=>$('#phase').add(new Option(a,a)));
- const last=D.map(x=>x.date_added).filter(Boolean).sort().pop();$('#asof').textContent=last?'Data as of '+last+'.':'';
- ['#q','#cat','#cust','#phase'].forEach(s=>$(s).addEventListener('input',render));
- document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:1;sortK=k;render()});
- render()}
+  readURL();
+  CATS.forEach(([c])=>$('#cat').add(new Option(c,c)));
+  uniq('customer').forEach(a=>$('#cust').add(new Option(a,a)));
+  PHASES.forEach(a=>$('#phase').add(new Option(a,a)));
+  const last=D.map(x=>x.date_added).filter(Boolean).sort().pop();
+  if(last){$('#asof').textContent='Last updated '+fmtDate(last)+'.';$('#foot-asof').textContent='Data as of '+last}
+  $('#q').value=S.q;$('#cat').value=S.cat;$('#cust').value=S.cust;$('#phase').value=S.phase;
+  const bind=(sel,k)=>$(sel).addEventListener('input',e=>{S[k]=e.target.value;update()});
+  bind('#q','q');bind('#cat','cat');bind('#cust','cust');bind('#phase','phase');
+  $('#clear').onclick=()=>{for(const k in S)S[k]='';['#q','#cat','#cust','#phase'].forEach(s=>$(s).value='');update()};
+  document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:(k==='date_added'?-1:1);sortK=k;render()});
+  facts();skyline();render();
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(skyline,120)});
+}
+function update(){writeURL();render();skyline()}
+const fmtDate=s=>new Date(s+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const isNew=x=>x.date_added&&(Date.now()-new Date(x.date_added+'T00:00:00'))<NEW_DAYS*864e5;
+
+function facts(){
+  const countries=new Set(D.map(x=>(x.hq||'').split(',').pop().trim()).filter(Boolean));
+  const cats=new Set(D.flatMap(x=>x.category||[]));
+  $('#facts').innerHTML=[[D.length,'companies'],[cats.size,'categories'],[countries.size,'countries'],[D.filter(isNew).length,'new this week']]
+    .map(([n,l])=>`<div><b>${n}</b>${l}</div>`).join('');
+}
+
+/* Fig. 1: skyline of categories (Krisztina Szűcs-style bars with long shadows) */
+function skyline(){
+  const host=$('#skyline');host.querySelector('svg')?.remove();
+  const W=host.clientWidth,G=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--groundH'))+4;
+  const skyH=Math.max(240,host.clientHeight-G-30),H=skyH+G;
+  const counts=CATS.map(([c,s])=>({c,s,n:D.filter(x=>(x.category||[]).includes(c)).length}));
+  const max=Math.max(1,...counts.map(d=>d.n));
+  const n=counts.length,gap=W<500?4:8,bw=(W-gap*(n-1))/n;
+  const y0=skyH; // building baseline = top of ground
+  let s=`<svg viewBox="0 0 ${W} ${H}" height="${H}" role="group" aria-labelledby="figcap">
+  <defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgb(var(--shadow))" stop-opacity=".6"/><stop offset="1" stop-color="rgb(var(--shadow))" stop-opacity="0"/></linearGradient></defs>
+  <circle cx="${W*.5}" cy="${W<500?40:60}" r="${W<500?16:26}" fill="var(--sun)"/>`;
+  counts.forEach((d,i)=>{
+    const x=i*(bw+gap),h=d.n?Math.max(10,(d.n/max)*(skyH-70)):Math.max(10,(skyH-70)*.12),y=y0-h;
+    const dx=Math.min(h*.7,G*1.3),dy=G-6;
+    const sel=S.cat===d.c;
+    s+=`<g class="bar${d.n?'':' empty'}${sel?' sel':''}" tabindex="0" role="button" aria-pressed="${sel}" aria-label="${esc(d.c)}: ${d.n} companies" data-c="${esc(d.c)}">
+      ${d.n?`<polygon points="${x},${y0+4} ${x+bw},${y0+4} ${x+bw+dx},${y0+dy} ${x+dx},${y0+dy}" fill="url(#sh)"/>`:''}
+      <rect class="b" x="${x}" y="${y}" width="${bw}" height="${h}"/>
+      <rect class="hit" x="${x-gap/2}" y="0" width="${bw+gap}" height="${H}"/>
+      <text x="${x+bw/2}" y="${y-8}" text-anchor="middle">${d.n}</text>
+      <text class="lab" transform="translate(${x+bw/2+3},${y0+14}) rotate(90)">${esc(d.s)}</text>
+    </g>`;
+  });
+  s+='</svg>';
+  host.insertAdjacentHTML('beforeend',s);
+  host.classList.toggle('has-sel',!!S.cat);
+  host.querySelectorAll('.bar').forEach(g=>{
+    const go=()=>{S.cat=S.cat===g.dataset.c?'':g.dataset.c;$('#cat').value=S.cat;update();if(S.cat)document.getElementById('directory').scrollIntoView()};
+    g.addEventListener('click',go);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+  });
+}
+
+/* {B} directory table */
 function render(){
- const q=$('#q').value.toLowerCase(),c=$('#cat').value,u=$('#cust').value,p=$('#phase').value;
- const f=D.filter(x=>(!c||(x.category||[]).includes(c))&&(!u||(x.customer||[]).includes(u))&&(!p||(x.phases||[]).includes(p))&&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q)));
- f.sort((x,y)=>String(x[sortK]||'').localeCompare(String(y[sortK]||''))*dir);
- const wk=new Date(Date.now()-8*864e5).toISOString().slice(0,10);
- $('#stats').innerHTML=[[D.length,'companies'],[f.length,'matching filters'],[D.filter(x=>x.date_added>=wk).length,'added in last 8 days']].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
- const chips=(a,cls='')=>(a||[]).map(n=>`<span class="chip ${cls}">${esc(n)}</span>`).join('');
- $('#rows').innerHTML=f.length?f.map(x=>`<tr><td class="co">${esc(x.company)}</td><td>${esc(x.description)||'<span class="mut">—</span>'}<div>${x.website?`<a href="${esc(x.website)}" target="_blank" rel="noopener">website</a>`:''}${x.linkedin?` · <a href="${esc(x.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`:''}</div></td><td>${chips(x.category)}${chips(x.subcategory,'s')}</td><td>${chips(x.customer,'s')}</td><td>${esc(x.funding)}</td><td>${esc(x.hq)}</td><td>${esc(x.date_added)}</td></tr>`).join(''):`<tr><td colspan="7" class="mut">No companies published yet. <a href="#submit">Submit yours.</a></td></tr>`}
+  const q=S.q.toLowerCase();
+  const f=D.filter(x=>(!S.cat||(x.category||[]).includes(S.cat))&&(!S.cust||(x.customer||[]).includes(S.cust))&&(!S.phase||(x.phases||[]).includes(S.phase))
+    &&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q)));
+  f.sort((a,b)=>String(a[sortK]||'').localeCompare(String(b[sortK]||''))*dir);
+  const active=Object.values(S).some(Boolean);
+  $('#count').textContent=active?`Showing ${f.length} of ${D.length} companies`:`${D.length} companies`;
+  $('#clear').hidden=!active;
+  document.querySelectorAll('th[data-k]').forEach(th=>{th.querySelector('.arr')?.remove();if(th.dataset.k===sortK)th.insertAdjacentHTML('beforeend',`<span class="arr"> ${dir>0?'↑':'↓'}</span>`)});
+  const tags=(a,c='')=>(a||[]).map(n=>`<span class="tag ${c}">${esc(n)}</span>`).join('');
+  $('#rows').innerHTML=f.length?f.map(x=>`<tr>
+    <td class="co">${esc(x.company)}${isNew(x)?'<span class="new">NEW</span>':''}<span class="links">${x.website?`<a href="${esc(x.website)}" target="_blank" rel="noopener">Website ↗</a>`:''}${x.linkedin?`<a href="${esc(x.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a>`:''}</span></td>
+    <td class="desc">${esc(x.description)||'—'}</td>
+    <td data-h="Category">${tags(x.category)}${tags(x.subcategory,'s')}</td>
+    <td data-h="Customers">${tags(x.customer,'s')}</td>
+    <td data-h="Funding">${esc(x.funding)||'<span class="label">Undisclosed</span>'}</td>
+    <td data-h="HQ">${esc(x.hq)}</td>
+    <td class="num" data-h="Added">${esc(x.date_added)}</td></tr>`).join('')
+    :`<tr><td colspan="7" class="label" style="padding:28px 0">No companies match these filters. <button class="clear label" onclick="document.getElementById('clear').click()">Clear filters</button></td></tr>`;
+}
 </script>
 </body>
 </html>
