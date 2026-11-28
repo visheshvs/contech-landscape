@@ -15,19 +15,19 @@
   --ink:#2b2b2b;        /* text + buildings */
   --ink-2:#6b675e;      /* secondary text */
   --rule:#cfc7b4;       /* hairlines */
-  --sky:#9bbdb5;        /* hero sky (sage) */
-  --ground:#e6331a;     /* hero ground (vermilion), also the accent */
-    --accent:#c92b14;     /* accent for text/links on paper (AA contrast) */
-  --on-ground:#f6efe2;
+  --sky:#d9d0bd;        /* hero sky (warm stone) */
+  --ground:#c9a046;     /* hero ground (ochre) and data highlights */
+  --accent:#8a6216;     /* dark ochre for text/links on paper (AA contrast) */
+  --on-ground:#2b2b2b;
   --slab:"Roboto Slab",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#16212e;--paper-2:#1d2b3b;--ink:#ece6d8;--ink-2:#a3a9ad;--rule:#33445a;
-  --sky:#1f3a52;--ground:#c63a22;--accent:#ff8a6b;--on-ground:#f6efe2}}
+  --paper:#1b1a17;--paper-2:#25231f;--ink:#ece6d8;--ink-2:#a8a294;--rule:#3b3830;
+  --sky:#2c2a25;--ground:#b8913f;--accent:#e2b85c;--on-ground:#1b1a17}}
 :root[data-theme="dark"]{
-  --paper:#16212e;--paper-2:#1d2b3b;--ink:#ece6d8;--ink-2:#a3a9ad;--rule:#33445a;
-  --sky:#1f3a52;--ground:#c63a22;--accent:#ff8a6b;--on-ground:#f6efe2}
+  --paper:#1b1a17;--paper-2:#25231f;--ink:#ece6d8;--ink-2:#a8a294;--rule:#3b3830;
+  --sky:#2c2a25;--ground:#b8913f;--accent:#e2b85c;--on-ground:#1b1a17}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:56px}
@@ -123,6 +123,28 @@ section.block{padding:88px 0 40px}
   .hm .long{display:none}.hm .short{display:inline}
 }
 
+/* ---------- Fig. 3 UpSet ---------- */
+.up-wrap{overflow-x:auto;margin:0 -4px}
+#upset{min-width:600px;padding:0 4px}
+#upset svg{display:block;width:100%;overflow:visible}
+.up text{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.up .rowlab{font-family:var(--slab);font-size:14px;fill:var(--ink)}
+.up .band{fill:var(--paper-2)}
+.up .ib{fill:var(--ink)}
+.up .sb{fill:var(--ground)}
+.up .dot{fill:var(--rule)}
+.up .dot.on{fill:var(--ink)}
+.up .link{stroke:var(--ink);stroke-width:2}
+.up .col{cursor:pointer}
+.up .col .hit{fill:transparent}
+.up .col:hover .hit,.up .col:focus-visible .hit{fill:color-mix(in srgb,var(--ground) 18%,transparent)}
+.up .col:focus{outline:none}
+.up .col.sel .hit{fill:color-mix(in srgb,var(--ground) 30%,transparent)}
+.up .col.sel .ib,.up .col.sel .dot.on{fill:var(--accent)}.up .col.sel .link{stroke:var(--accent)}
+.up .col text.v{fill:var(--ink)}
+.fig-note{margin:16px 0 0;max-width:70ch}
+.chipf{display:inline-flex;gap:6px;align-items:center;font:400 11px var(--mono);border:1px solid var(--accent);color:var(--accent);padding:2px 8px;margin-left:8px;text-transform:none;letter-spacing:0}
+
 /* ---------- Directory ---------- */
 .controls{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px}
 .field{display:flex;flex-direction:column;gap:4px;min-width:170px;flex:1}
@@ -183,9 +205,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <nav aria-label="Sections">
       <a href="#landscape"><b>{A}</b> Landscape</a>
       <a href="#lifecycle"><b>{B}</b> Lifecycle</a>
-      <a href="#directory"><b>{C}</b> Directory</a>
-      <a href="#submit"><b>{D}</b> Add a company</a>
-      <a href="#about"><b>{E}</b> About</a>
+      <a href="#overlaps"><b>{C}</b> Overlaps</a>
+      <a href="#directory"><b>{D}</b> Directory</a>
+      <a href="#submit"><b>{E}</b> Add a company</a>
+      <a href="#about"><b>{F}</b> About</a>
     </nav>
     <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">◐</button>
   </div>
@@ -221,9 +244,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="block" id="directory">
+<section class="block" id="overlaps">
   <div class="wrap">
     <div class="sec-head"><div class="idx">{C}</div><div>
+      <h2>How categories combine</h2>
+      <p>Most companies sit in more than one category. Each column is one exact combination; the bar above it counts the companies with that combination and nothing else. Dots below show which categories are in it, and the bars on the right show each category's total.</p>
+    </div></div>
+    <div class="up-wrap"><div id="upset"></div></div>
+    <p class="label fig-note" id="up-cap">Fig. 3 — Exact category combinations, an UpSet plot. Select a column to see those companies in the directory. <span id="up-note"></span></p>
+  </div>
+</section>
+
+<section class="block" id="directory">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{D}</div><div>
       <h2>The directory</h2>
       <p>Every company, with what it does, who it serves and where it sits in the project lifecycle. <span id="asof"></span></p>
     </div></div>
@@ -244,7 +278,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block" id="submit">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{D}</div><div>
+    <div class="sec-head"><div class="idx">{E}</div><div>
       <h2>Add your company</h2>
       <p>Building for construction, design or property? Send the details and it will be reviewed for the next weekly update.</p>
     </div></div>
@@ -263,7 +297,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block" id="about">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{E}</div><div>
+    <div class="sec-head"><div class="idx">{F}</div><div>
       <h2>About the data</h2>
       <p>The full dataset is open under CC BY 4.0: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv and companies.json</a>. Corrections are welcome through GitHub issues or the email above.</p>
     </div></div>
@@ -331,7 +365,7 @@ $('#showTpl').onclick=()=>showTpl($('#tpl').hidden);
 
 /* data + state (filters live in the URL so views can be shared) */
 let D=[],sortK='date_added',dir=-1;
-const S={q:'',cat:'',cust:'',phase:''};
+const S={q:'',cat:'',cust:'',phase:'',combo:''};
 const NEW_DAYS=8;
 function readURL(){const p=new URLSearchParams(location.search);for(const k in S)S[k]=p.get(k)||''}
 function writeURL(){const p=new URLSearchParams();for(const k in S)if(S[k])p.set(k,S[k]);const qs=p.toString();history.replaceState(null,'',(qs?'?'+qs:location.pathname)+location.hash)}
@@ -351,10 +385,10 @@ function init(){
   bind('#q','q');bind('#cat','cat');bind('#cust','cust');bind('#phase','phase');
   $('#clear').onclick=()=>{for(const k in S)S[k]='';['#q','#cat','#cust','#phase'].forEach(s=>$(s).value='');update()};
   document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:(k==='date_added'?-1:1);sortK=k;render()});
-  facts();skyline();heatmap();render();
-  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(skyline,120)});
+  facts();skyline();heatmap();upset();render();
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{skyline();upset()},120)});
 }
-function update(){writeURL();render();skyline();heatmap()}
+function update(){writeURL();render();skyline();heatmap();upset()}
 const fmtDate=s=>new Date(s+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
 const isNew=x=>x.date_added&&(Date.now()-new Date(x.date_added+'T00:00:00'))<NEW_DAYS*864e5;
 
@@ -449,14 +483,51 @@ function heatmap(){
   });
 }
 
-/* {C} directory table */
+/* Fig. 3: UpSet plot of exact category combinations. Counts follow search, customer and phase filters. */
+const CAT_ORDER=CATS.map(c=>c[0]),shortCat=c=>(CATS.find(k=>k[0]===c)||[c,c])[1];
+const comboKey=x=>[...(x.category||[])].sort((a,b)=>CAT_ORDER.indexOf(a)-CAT_ORDER.indexOf(b)).join('|');
+function upset(){
+  const host=$('#upset');const q=S.q.toLowerCase();
+  const B=D.filter(x=>(!S.cust||(x.customer||[]).includes(S.cust))&&(!S.phase||(x.phases||[]).includes(S.phase))&&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q)));
+  const m=new Map();B.forEach(x=>{const k=comboKey(x);if(k)m.set(k,(m.get(k)||0)+1)});
+  let combos=[...m].map(([k,n])=>({k,sets:k.split('|'),n})).sort((a,b)=>b.n-a.n||a.sets.length-b.sets.length);
+  const MAXC=24,hidden=combos.length-MAXC;combos=combos.slice(0,MAXC);
+  const rows=CAT_ORDER.filter(c=>combos.some(o=>o.sets.includes(c)));
+  const setN=c=>B.filter(x=>(x.category||[]).includes(c)).length;
+  const W=Math.max(600,host.clientWidth),narrow=W<760;
+  const L=narrow?110:300,R=narrow?60:110,top=150,rh=narrow?26:28,H=top+rows.length*rh+8;
+  const k=Math.max(1,combos.length),cw=(W-L-R)/k,r=Math.max(3,Math.min(7,cw*.28));
+  const maxN=Math.max(1,...combos.map(o=>o.n)),maxS=Math.max(1,...rows.map(setN));
+  let s=`<svg class="up" viewBox="0 0 ${W} ${H}" height="${H}" role="group" aria-labelledby="up-cap">`;
+  rows.forEach((c,i)=>{const y=top+i*rh;if(i%2==0)s+=`<rect class="band" x="0" y="${y}" width="${W}" height="${rh}"/>`;
+    s+=`<text class="rowlab" x="${L-12}" y="${y+rh/2+5}" text-anchor="end">${esc(narrow?shortCat(c):c)}</text>`;
+    const n=setN(c),bw=(R-36)*n/maxS;s+=`<rect class="sb" x="${W-R+8}" y="${y+rh*.3}" width="${bw}" height="${rh*.4}"/><text x="${W-R+14+bw}" y="${y+rh/2+4}">${n}</text>`});
+  s+=`<text x="${L}" y="12">Companies with exactly this combination</text>`;
+  combos.forEach((o,j)=>{
+    const cx=L+j*cw+cw/2,bh=(top-40)*o.n/maxN,sel=S.combo===o.k;
+    const ys=o.sets.map(c=>top+rows.indexOf(c)*rh+rh/2);
+    s+=`<g class="col${sel?' sel':''}" tabindex="0" role="button" aria-pressed="${sel}" data-k="${esc(o.k)}" aria-label="${esc(o.sets.join(' + '))}: ${o.n} companies">
+      <rect class="hit" x="${L+j*cw}" y="20" width="${cw}" height="${H-20}"/>
+      <rect class="ib" x="${cx-cw*.32}" y="${top-8-bh}" width="${cw*.64}" height="${bh}"/>
+      <text class="v" x="${cx}" y="${top-14-bh}" text-anchor="middle">${o.n}</text>
+      ${o.sets.length>1?`<line class="link" x1="${cx}" x2="${cx}" y1="${Math.min(...ys)}" y2="${Math.max(...ys)}"/>`:''}
+      ${rows.map((c,i)=>`<circle class="dot${o.sets.includes(c)?' on':''}" cx="${cx}" cy="${top+i*rh+rh/2}" r="${r}"/>`).join('')}
+    </g>`;
+  });
+  host.innerHTML=s+'</svg>';
+  $('#up-note').textContent=(hidden>0?`${hidden} rarer combinations are not shown. `:'')+((S.cust||S.phase||S.q)?`Counts follow the current customer, phase and search filters (${B.length} companies).`:'');
+  host.querySelectorAll('.col').forEach(g=>{const go=()=>{S.combo=S.combo===g.dataset.k?'':g.dataset.k;update();if(S.combo)document.getElementById('directory').scrollIntoView()};
+    g.addEventListener('click',go);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+}
+
+/* {D} directory table */
 function render(){
   const q=S.q.toLowerCase();
-  const f=D.filter(x=>(!S.cat||(x.category||[]).includes(S.cat))&&(!S.cust||(x.customer||[]).includes(S.cust))&&(!S.phase||(x.phases||[]).includes(S.phase))
+  const f=D.filter(x=>(!S.combo||comboKey(x)===S.combo)&&(!S.cat||(x.category||[]).includes(S.cat))&&(!S.cust||(x.customer||[]).includes(S.cust))&&(!S.phase||(x.phases||[]).includes(S.phase))
     &&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q)));
   f.sort((a,b)=>String(a[sortK]||'').localeCompare(String(b[sortK]||''))*dir);
   const active=Object.values(S).some(Boolean);
-  $('#count').textContent=active?`Showing ${f.length} of ${D.length} companies`:`${D.length} companies`;
+  $('#count').innerHTML=(active?`Showing ${f.length} of ${D.length} companies`:`${D.length} companies`)+(S.combo?`<span class="chipf">Only: ${esc(S.combo.split('|').map(shortCat).join(' + '))}</span>`:'');
   $('#clear').hidden=!active;
   document.querySelectorAll('th[data-k]').forEach(th=>{th.querySelector('.arr')?.remove();if(th.dataset.k===sortK)th.insertAdjacentHTML('beforeend',`<span class="arr"> ${dir>0?'↑':'↓'}</span>`)});
   const tags=(a,c='')=>(a||[]).map(n=>`<span class="tag ${c}">${esc(n)}</span>`).join('');
