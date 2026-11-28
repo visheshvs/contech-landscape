@@ -17,19 +17,17 @@
   --rule:#cfc7b4;       /* hairlines */
   --sky:#9bbdb5;        /* hero sky (sage) */
   --ground:#e6331a;     /* hero ground (vermilion), also the accent */
-  --sun:#f2eee3;
-  --accent:#c92b14;     /* accent for text/links on paper (AA contrast) */
+    --accent:#c92b14;     /* accent for text/links on paper (AA contrast) */
   --on-ground:#f6efe2;
-  --shadow:0,0,0;
   --slab:"Roboto Slab",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#16212e;--paper-2:#1d2b3b;--ink:#ece6d8;--ink-2:#a3a9ad;--rule:#33445a;
-  --sky:#1f3a52;--ground:#c63a22;--sun:#ece6d8;--accent:#ff8a6b;--on-ground:#f6efe2;--shadow:0,0,0}}
+  --sky:#1f3a52;--ground:#c63a22;--accent:#ff8a6b;--on-ground:#f6efe2}}
 :root[data-theme="dark"]{
   --paper:#16212e;--paper-2:#1d2b3b;--ink:#ece6d8;--ink-2:#a3a9ad;--rule:#33445a;
-  --sky:#1f3a52;--ground:#c63a22;--sun:#ece6d8;--accent:#ff8a6b;--on-ground:#f6efe2;--shadow:0,0,0}
+  --sky:#1f3a52;--ground:#c63a22;--accent:#ff8a6b;--on-ground:#f6efe2}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:56px}
@@ -65,13 +63,18 @@ a{color:var(--accent);text-underline-offset:3px}
 .ground{position:absolute;left:0;right:0;bottom:0;height:var(--groundH);background:var(--ground);border-top:4px solid var(--paper)}
 :root{--groundH:132px}
 .bar{cursor:pointer;transition:opacity .2s}
-.bar rect.b{fill:var(--ink);transition:fill .2s}
+.bar rect.b,.bar .slab{fill:var(--ink);transition:fill .2s}
+.bar .win{fill:var(--sky);transition:fill .2s}
+.bar .frame{fill:none;stroke:var(--ink);stroke-width:1.2}
 .bar rect.hit{fill:transparent}
-.bar.empty rect.b{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 3;opacity:.6}
+.bar .plot{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:3 3;opacity:.6}
+.crane{pointer-events:none}.crane path{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linejoin:round}.crane rect{fill:var(--ink)}
 .bar text{font-family:var(--mono);font-size:11px;fill:var(--ink)}
 .bar text.lab{fill:var(--on-ground);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .skyline.has-sel .bar:not(.sel){opacity:.35}
-.bar:hover rect.b,.bar:focus-visible rect.b,.bar.sel rect.b{fill:var(--paper)}
+.bar:hover rect.b,.bar:focus-visible rect.b,.bar.sel rect.b,.bar:hover .slab,.bar.sel .slab{fill:var(--paper)}
+.bar:hover .win,.bar.sel .win{fill:var(--ink)}
+.bar:hover .frame,.bar.sel .frame{stroke:var(--paper)}
 .bar:focus{outline:none}
 .fig-cap{padding:14px 0 0;max-width:none}
 @media (max-width:860px){
@@ -166,7 +169,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <figure class="skyline" id="skyline" style="margin:0" aria-describedby="figcap"></figure>
   </div>
 </section>
-<div class="wrap"><p class="fig-cap label" id="figcap">Fig. 1 — One building per category, in lifecycle order. Height is the number of companies; dashed outlines are categories with none yet. Select a building to filter the directory.</p></div>
+<div class="wrap"><p class="fig-cap label" id="figcap">Fig. 1 — One building per category, in lifecycle order, one floor per company. Open steel frames are companies added this week; dashed plots are categories with none yet. Select a building to filter the directory.</p></div>
 
 <main>
 <section class="block" id="directory">
@@ -313,32 +316,54 @@ function facts(){
     .map(([n,l])=>`<div><b>${n}</b>${l}</div>`).join('');
 }
 
-/* Fig. 1: skyline of categories (Krisztina Szűcs-style bars with long shadows) */
+/* Fig. 1: construction skyline. One building per category, one floor per company.
+   Floors for companies added this week are bare steel frames; the busiest sites get tower cranes. */
 function skyline(){
   const host=$('#skyline');host.querySelector('svg')?.remove();
   const W=host.clientWidth,G=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--groundH'))+4;
-  const skyH=Math.max(240,host.clientHeight-G-30),H=skyH+G;
-  const counts=CATS.map(([c,s])=>({c,s,n:D.filter(x=>(x.category||[]).includes(c)).length}));
-  const max=Math.max(1,...counts.map(d=>d.n));
-  const n=counts.length,gap=W<500?4:8,bw=(W-gap*(n-1))/n;
-  const y0=skyH; // building baseline = top of ground
-  let s=`<svg viewBox="0 0 ${W} ${H}" height="${H}" role="group" aria-labelledby="figcap">
-  <defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgb(var(--shadow))" stop-opacity=".6"/><stop offset="1" stop-color="rgb(var(--shadow))" stop-opacity="0"/></linearGradient></defs>
-  <circle cx="${W*.5}" cy="${W<500?40:60}" r="${W<500?16:26}" fill="var(--sun)"/>`;
-  counts.forEach((d,i)=>{
-    const x=i*(bw+gap),h=d.n?Math.max(10,(d.n/max)*(skyH-70)):Math.max(10,(skyH-70)*.12),y=y0-h;
-    const dx=Math.min(h*.7,G*1.3),dy=G-6;
-    const sel=S.cat===d.c;
-    s+=`<g class="bar${d.n?'':' empty'}${sel?' sel':''}" tabindex="0" role="button" aria-pressed="${sel}" aria-label="${esc(d.c)}: ${d.n} companies" data-c="${esc(d.c)}">
-      ${d.n?`<polygon points="${x},${y0+4} ${x+bw},${y0+4} ${x+bw+dx},${y0+dy} ${x+dx},${y0+dy}" fill="url(#sh)"/>`:''}
-      <rect class="b" x="${x}" y="${y}" width="${bw}" height="${h}"/>
-      <rect class="hit" x="${x-gap/2}" y="0" width="${bw+gap}" height="${H}"/>
-      <text x="${x+bw/2}" y="${y-8}" text-anchor="middle">${d.n}</text>
+  const skyH=Math.max(240,host.clientHeight-G-30),H=skyH+G,y0=skyH;
+  const rows=CATS.map(([c,s])=>{const xs=D.filter(x=>(x.category||[]).includes(c));return {c,s,n:xs.length,nw:xs.filter(isNew).length}});
+  const max=Math.max(1,...rows.map(d=>d.n));
+  const n=rows.length,gap=W<500?5:10,bw=(W-gap*(n-1))/n;
+  const fh=Math.min(18,(skyH-110)/max); // floor height
+  // cranes: sites with the most new floors, then the tallest; at most 3, never on adjacent sites
+  const order=rows.map((d,i)=>({i,k:d.nw*100+d.n})).filter(o=>rows[o.i].n).sort((p,q)=>q.k-p.k);
+  const cranes=[];for(const o of order){if(cranes.length>=(W<500?2:3))break;if(cranes.every(j=>Math.abs(j-o.i)>1))cranes.push(o.i)}
+  let back='',front='';
+  rows.forEach((d,i)=>{
+    const x=i*(bw+gap),sel=S.cat===d.c,built=d.n-d.nw,top=y0-d.n*fh;
+    let g='';
+    if(!d.n){ // empty plot: dashed footprint and a hoarding line
+      g+=`<rect class="plot" x="${x+1}" y="${y0-fh}" width="${bw-2}" height="${fh}"/>`;
+    }else{
+      const cols=Math.max(1,Math.min(4,Math.floor((bw-6)/9))),ww=(bw-6-(cols-1)*4)/cols;
+      for(let f=0;f<d.n;f++){
+        const fy=y0-(f+1)*fh;
+        if(f<built){
+          g+=`<rect class="b" x="${x}" y="${fy}" width="${bw}" height="${fh+.5}"/>`;
+          if(fh>=8)for(let k=0;k<cols;k++)g+=`<rect class="win" x="${x+3+k*(ww+4)}" y="${fy+fh*.3}" width="${ww}" height="${fh*.42}"/>`;
+        }else{ // steel frame under construction
+          g+=`<path class="frame" d="M${x+1},${fy+fh}V${fy}H${x+bw-1}V${fy+fh}M${x+1},${fy+fh}L${x+bw-1},${fy}M${x+1},${fy}L${x+bw-1},${fy+fh}"/>`;
+        }
+      }
+      g+=`<rect class="slab" x="${x-2}" y="${top-2}" width="${bw+4}" height="2"/>`;
+    }
+    if(cranes.includes(i)&&d.n){ // tower crane beside the site; mirrored on the right edge so it stays in the figure
+      const L=i>=n-2?-1:1,mw=Math.max(4,Math.min(7,gap-1)),mx=L>0?x+bw+gap/2:x-gap/2,mt=top-Math.max(46,fh*3),cj=bw*.7+8,jl=Math.min(bw*1.6+12,L>0?mx-2:W-mx-2);
+      const hx=L>0?x+5:x+bw-5,J=mx-L*jl,C=mx+L*cj;
+      let lat='';for(let yy=y0;yy>mt+6;yy-=mw*1.4)lat+=`M${mx-mw/2},${yy}L${mx+mw/2},${yy-mw*1.4}`;
+      back+=`<g class="crane"><path d="M${mx-mw/2},${y0}V${mt}M${mx+mw/2},${y0}V${mt}${lat}"/>
+        <path d="M${J},${mt}H${C}M${J},${mt}L${mx},${mt-14}L${C},${mt}M${mx},${mt-14}V${mt}"/>
+        <rect x="${Math.min(C,C-L*12)}" y="${mt}" width="12" height="7"/>
+        <path d="M${hx},${mt}V${top-26}"/><rect x="${hx-3}" y="${top-26}" width="6" height="4"/></g>`;
+    }
+    front+=`<g class="bar${d.n?'':' empty'}${sel?' sel':''}" tabindex="0" role="button" aria-pressed="${sel}" aria-label="${esc(d.c)}: ${d.n} companies${d.nw?`, ${d.nw} new this week`:''}" data-c="${esc(d.c)}">
+      <rect class="hit" x="${x-gap/2}" y="0" width="${bw+gap}" height="${H}"/>${g}
+      <text x="${x+bw/2}" y="${(d.n?top:y0-fh)-10}" text-anchor="middle">${d.n}</text>
       <text class="lab" transform="translate(${x+bw/2+3},${y0+14}) rotate(90)">${esc(d.s)}</text>
     </g>`;
   });
-  s+='</svg>';
-  host.insertAdjacentHTML('beforeend',s);
+  host.insertAdjacentHTML('beforeend',`<svg viewBox="0 0 ${W} ${H}" height="${H}" role="group" aria-labelledby="figcap">${back}${front}</svg>`);
   host.classList.toggle('has-sel',!!S.cat);
   host.querySelectorAll('.bar').forEach(g=>{
     const go=()=>{S.cat=S.cat===g.dataset.c?'':g.dataset.c;$('#cat').value=S.cat;update();if(S.cat)document.getElementById('directory').scrollIntoView()};
