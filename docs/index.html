@@ -91,6 +91,38 @@ section.block{padding:88px 0 40px}
 .sec-head p{margin:10px 0 0;color:var(--ink-2);max-width:62ch}
 @media (max-width:640px){.sec-head{grid-template-columns:1fr;gap:6px}section.block{padding-top:56px}}
 
+/* ---------- Fig. 2 heatmap ---------- */
+.hm-wrap{overflow-x:auto}
+.hm{border-collapse:separate;border-spacing:4px;width:100%;min-width:0;table-layout:fixed}
+.hm th,.hm td{border:0;padding:0}
+.hm thead th{border:0;font:400 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);text-align:center;vertical-align:bottom;padding:0 2px 6px;white-space:normal}
+.hm thead th.corner{width:270px;border:0}
+.hm thead th.tot{width:120px;text-align:left}
+.hm tbody th{font:400 15px/1.25 var(--slab);text-transform:none;letter-spacing:0;text-align:right;padding:0 14px 0 0;color:var(--ink);border:0;white-space:normal;vertical-align:middle}
+.hm tbody tr.zero th{color:var(--ink-2)}
+.hm td.cell button{display:block;width:100%;height:46px;border:0;cursor:pointer;font:500 13px var(--mono);
+  background:color-mix(in srgb,var(--ink) var(--p),var(--paper-2));color:var(--ink);transition:outline-color .15s,transform .15s;outline:2px solid transparent;outline-offset:2px}
+.hm td.cell button.dk{color:var(--paper)}
+.hm td.cell button:hover,.hm td.cell button:focus-visible{outline-color:var(--accent)}
+.hm td.cell button.sel{outline-color:var(--accent);outline-width:3px}
+.hm td.cell button.z{background:transparent;color:var(--ink-2);cursor:default;box-shadow:inset 0 0 0 1px var(--rule)}
+.hm td.tot{padding-left:10px;vertical-align:middle}
+.hm .rbar{display:flex;align-items:center;gap:8px;font:400 12px var(--mono);color:var(--ink-2)}
+.hm .rbar i{display:block;height:10px;background:var(--ground)}
+.hm-foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start;margin-top:16px}
+.hm-foot p{margin:0;max-width:70ch}
+.hm-key{display:flex;align-items:center;gap:4px}.hm-key span{margin:0 6px}
+.hm-key i{display:block;width:22px;height:12px;background:color-mix(in srgb,var(--ink) var(--p),var(--paper-2))}
+.hm .short{display:none}
+@media (max-width:760px){
+  .hm{border-spacing:3px}
+  .hm thead th.corner{width:96px}.hm thead th.tot{display:none}.hm td.tot{display:none}
+  .hm tbody th{font-size:12px;padding-right:6px}
+  .hm thead th{font-size:9px;letter-spacing:.04em}
+  .hm td.cell button{height:38px;font-size:12px}
+  .hm .long{display:none}.hm .short{display:inline}
+}
+
 /* ---------- Directory ---------- */
 .controls{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px}
 .field{display:flex;flex-direction:column;gap:4px;min-width:170px;flex:1}
@@ -103,7 +135,7 @@ section.block{padding:88px 0 40px}
 .status{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:18px 0 6px}
 .clear{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .tbl{width:100%;overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:760px}
+.tbl table{width:100%;border-collapse:collapse;min-width:760px}
 th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--ink-2);text-align:left;padding:12px 10px;border-bottom:1px solid var(--ink);white-space:nowrap}
 th[data-k]{cursor:pointer;user-select:none}th[data-k]:hover{color:var(--ink)}
 th .arr{color:var(--accent)}
@@ -117,10 +149,10 @@ td.num{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:now
 .tag.s{border-color:var(--rule);color:var(--ink-2)}
 .new{font:500 10px var(--mono);letter-spacing:.1em;color:var(--paper);background:var(--accent);padding:1px 5px;margin-left:6px;vertical-align:2px}
 @media (max-width:760px){
-  table{min-width:0}thead{display:none}
-  tr{display:block;border-bottom:1px solid var(--ink);padding:14px 0}
-  td{display:block;border:0;padding:4px 0}td.co{white-space:normal}
-  td[data-h]:before{content:attr(data-h);display:block;font:400 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
+  .tbl table{min-width:0}.tbl thead{display:none}
+  .tbl tr{display:block;border-bottom:1px solid var(--ink);padding:14px 0}
+  .tbl td{display:block;border:0;padding:4px 0}.tbl td.co{white-space:normal}
+  .tbl td[data-h]:before{content:attr(data-h);display:block;font:400 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
 }
 
 /* ---------- Submit ---------- */
@@ -150,9 +182,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <a class="brand" href="#top">ConTech Landscape</a>
     <nav aria-label="Sections">
       <a href="#landscape"><b>{A}</b> Landscape</a>
-      <a href="#directory"><b>{B}</b> Directory</a>
-      <a href="#submit"><b>{C}</b> Add a company</a>
-      <a href="#about"><b>{D}</b> About</a>
+      <a href="#lifecycle"><b>{B}</b> Lifecycle</a>
+      <a href="#directory"><b>{C}</b> Directory</a>
+      <a href="#submit"><b>{D}</b> Add a company</a>
+      <a href="#about"><b>{E}</b> About</a>
     </nav>
     <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">◐</button>
   </div>
@@ -172,9 +205,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="wrap"><p class="fig-cap label" id="figcap">Fig. 1 — One building per category, in lifecycle order, one floor per company. Open steel frames are companies added this week; dashed plots are categories with none yet. Select a building to filter the directory.</p></div>
 
 <main>
-<section class="block" id="directory">
+<section class="block" id="lifecycle">
   <div class="wrap">
     <div class="sec-head"><div class="idx">{B}</div><div>
+      <h2>Where the tools sit in a project</h2>
+      <p>Each row is a category and each column a project phase. The stronger the shade, the more companies offer that kind of tool for that phase. Companies span several categories and phases, so they count in every cell they belong to.</p>
+    </div></div>
+    <div class="hm-wrap">
+      <table class="hm" id="heatmap" aria-describedby="hm-cap"></table>
+    </div>
+    <div class="hm-foot">
+      <p class="label" id="hm-cap">Fig. 2 — Companies by category and phase. Select a cell to see those companies in the directory. <span id="hm-note"></span></p>
+      <div class="hm-key label" aria-hidden="true"><span>Fewer</span><i style="--p:12%"></i><i style="--p:34%"></i><i style="--p:56%"></i><i style="--p:78%"></i><i style="--p:100%"></i><span>More</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="directory">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{C}</div><div>
       <h2>The directory</h2>
       <p>Every company, with what it does, who it serves and where it sits in the project lifecycle. <span id="asof"></span></p>
     </div></div>
@@ -195,7 +244,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block" id="submit">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{C}</div><div>
+    <div class="sec-head"><div class="idx">{D}</div><div>
       <h2>Add your company</h2>
       <p>Building for construction, design or property? Send the details and it will be reviewed for the next weekly update.</p>
     </div></div>
@@ -214,7 +263,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block" id="about">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{D}</div><div>
+    <div class="sec-head"><div class="idx">{E}</div><div>
       <h2>About the data</h2>
       <p>The full dataset is open under CC BY 4.0: <a href="https://github.com/visheshvs/contech-landscape/tree/main/data">data/companies.csv and companies.json</a>. Corrections are welcome through GitHub issues or the email above.</p>
     </div></div>
@@ -302,10 +351,10 @@ function init(){
   bind('#q','q');bind('#cat','cat');bind('#cust','cust');bind('#phase','phase');
   $('#clear').onclick=()=>{for(const k in S)S[k]='';['#q','#cat','#cust','#phase'].forEach(s=>$(s).value='');update()};
   document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:(k==='date_added'?-1:1);sortK=k;render()});
-  facts();skyline();render();
+  facts();skyline();heatmap();render();
   let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(skyline,120)});
 }
-function update(){writeURL();render();skyline()}
+function update(){writeURL();render();skyline();heatmap()}
 const fmtDate=s=>new Date(s+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
 const isNew=x=>x.date_added&&(Date.now()-new Date(x.date_added+'T00:00:00'))<NEW_DAYS*864e5;
 
@@ -371,7 +420,36 @@ function skyline(){
   });
 }
 
-/* {B} directory table */
+/* Fig. 2: category x phase heatmap. Counts follow the search and customer filters,
+   so you can ask e.g. "what do general contractors get in preconstruction?" */
+const PH_SHORT={'Planning & Feasibility':'Planning','Design':'Design','Preconstruction':'Precon','Construction':'Build','Operations':'Ops'};
+function base(){const q=S.q.toLowerCase();return D.filter(x=>(!S.cust||(x.customer||[]).includes(S.cust))&&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q)))}
+function heatmap(){
+  const B=base();
+  const M=CATS.map(([c])=>PHASES.map(p=>B.filter(x=>(x.category||[]).includes(c)&&(x.phases||[]).includes(p)).length));
+  const tot=CATS.map(([c])=>B.filter(x=>(x.category||[]).includes(c)).length);
+  const max=Math.max(1,...M.flat()),tmax=Math.max(1,...tot);
+  let h=`<caption class="sr">Number of companies for each category and project phase</caption><thead><tr><th class="corner" scope="col"><span class="sr">Category</span></th>`;
+  PHASES.forEach(p=>h+=`<th scope="col"><span class="long">${esc(p==='Planning & Feasibility'?'Planning':p)}</span><span class="short">${PH_SHORT[p]}</span></th>`);
+  h+=`<th class="tot" scope="col">All phases</th></tr></thead><tbody>`;
+  CATS.forEach(([c,short],i)=>{
+    h+=`<tr class="${tot[i]?'':'zero'}"><th scope="row" title="${esc(c)}"><span class="long">${esc(c)}</span><span class="short">${esc(short)}</span></th>`;
+    PHASES.forEach((p,j)=>{
+      const v=M[i][j],pc=v?Math.round(12+88*v/max):0,sel=S.cat===c&&S.phase===p;
+      h+=`<td class="cell"><button type="button" class="${v?'':'z'}${pc>55?' dk':''}${sel?' sel':''}" style="--p:${pc}%" data-c="${esc(c)}" data-p="${esc(p)}" ${v?'':'disabled'} aria-pressed="${sel}" aria-label="${esc(c)}, ${esc(p)}: ${v} companies">${v||'·'}</button></td>`;
+    });
+    h+=`<td class="tot"><span class="rbar"><i style="width:${Math.round(70*tot[i]/tmax)}px"></i>${tot[i]}</span></td></tr>`;
+  });
+  $('#heatmap').innerHTML=h+'</tbody>';
+  $('#hm-note').textContent=(S.cust||S.q)?`Showing ${B.length} companies that match ${[S.cust&&('customer “'+S.cust+'”'),S.q&&('search “'+S.q+'”')].filter(Boolean).join(' and ')}.`:'';
+  $('#heatmap').querySelectorAll('button:not([disabled])').forEach(b=>b.onclick=()=>{
+    const same=S.cat===b.dataset.c&&S.phase===b.dataset.p;
+    S.cat=same?'':b.dataset.c;S.phase=same?'':b.dataset.p;$('#cat').value=S.cat;$('#phase').value=S.phase;update();
+    if(!same)document.getElementById('directory').scrollIntoView();
+  });
+}
+
+/* {C} directory table */
 function render(){
   const q=S.q.toLowerCase();
   const f=D.filter(x=>(!S.cat||(x.category||[]).includes(S.cat))&&(!S.cust||(x.customer||[]).includes(S.cust))&&(!S.phase||(x.phases||[]).includes(S.phase))
