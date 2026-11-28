@@ -1,0 +1,124 @@
+/* Styles for figures 2 and 5-8, the company drawer and tooltips. Tokens come from index.html. */
+:root{
+  /* categorical palette for main categories: muted, warm, readable on paper and on the dark panel */
+  --c1:#c9a046;--c2:#b5654a;--c3:#7f9a8c;--c4:#5f7896;--c5:#8d6a91;--c6:#a39a5a;--c7:#c98a5b;
+  --c8:#6f8f6a;--c9:#9b7b56;--c10:#4f8a8b;--c11:#b0805f;--c12:#857a9e;--c13:#a8a07e;--c14:#d0b071;
+}
+.fig-note{margin:16px 0 0;max-width:80ch}
+.btn.sm{padding:8px 12px;font-size:11px}
+
+/* ---------- Fig. 2 market map ---------- */
+.mm-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.mm{columns:270px;column-gap:14px;background:var(--paper);padding:2px}
+.mm-box{border:1.5px solid var(--ink);display:flex;flex-direction:column;break-inside:avoid;margin:0 0 14px}
+.mm-box h3{margin:0;display:flex;justify-content:space-between;gap:8px;align-items:baseline;background:var(--ink);color:var(--paper);padding:8px 12px;font:400 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.mm-box h3 b{font-weight:500;color:var(--ground)}
+.mm-box.empty{border-style:dashed;border-color:var(--rule)}
+.mm-box.empty h3{background:transparent;color:var(--ink-2);border-bottom:1px dashed var(--rule)}
+.mm-box .none{padding:14px 12px;color:var(--ink-2);font-size:13px}
+.mm-tiles{display:flex;flex-wrap:wrap;gap:6px;padding:10px}
+.tile{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--rule);background:var(--paper);padding:4px 9px 4px 4px;cursor:pointer;font:400 13px var(--slab);color:var(--ink);transition:opacity .2s,border-color .15s}
+.tile i{display:grid;place-items:center;width:22px;height:22px;background:var(--paper-2);font:500 10px var(--mono);font-style:normal;color:var(--ink)}
+.tile.new i{background:var(--ground);color:#2b2b2b}
+.tile:hover,.tile:focus-visible{border-color:var(--ink);outline:none}
+.tile.off{opacity:.22}
+
+/* ---------- Fig. 5 funding dot plot ---------- */
+.fd-controls{align-items:flex-end}
+.fd-controls .field{flex:0 1 260px}
+.fd-key{display:flex;gap:16px;align-items:center;margin-left:auto;flex-wrap:wrap}
+.fd-key span{display:inline-flex;align-items:center;gap:6px}
+.fd-key i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.fd-wrap{overflow-x:auto;margin-top:18px}
+#fd svg,#stairs-fig svg,#tl svg{display:block;overflow:visible}
+.fd text{font:400 11px var(--mono);fill:var(--ink-2)}
+.fd .grp{font:600 13px var(--slab);fill:var(--ink)}
+.fd .nm{font:300 13px var(--slab);fill:var(--ink)}
+.fd .grid{stroke:var(--rule);stroke-width:1}
+.fd .sep{stroke:var(--ink-2);stroke-width:1;stroke-dasharray:1 4}
+.fd .stem{stroke:var(--rule);stroke-width:1.5}
+.fd .pt{cursor:pointer}
+.fd .pt circle{stroke:var(--paper);stroke-width:1.5}
+.fd .pt:hover circle,.fd .pt:focus-visible circle{stroke:var(--ink);stroke-width:2}
+.fd .pt:focus{outline:none}
+.fd .pt.off{opacity:.18}
+
+/* ---------- Fig. 6 funding stairs ---------- */
+.st-wrap{overflow-x:auto;background:linear-gradient(180deg,color-mix(in srgb,var(--ground) 85%,var(--paper)) 0%,var(--sky) 100%);padding:28px 20px 10px}
+#stairs-fig{min-width:760px}
+.st text{font:400 10px var(--mono);fill:var(--ink)}
+.st .stg{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.st .step{fill:color-mix(in srgb,var(--paper) 55%,transparent)}
+.st .grid{stroke:color-mix(in srgb,var(--ink) 35%,transparent);stroke-width:.8}
+.st .pole{stroke:var(--ink);stroke-width:1.5}
+.st .pole-g{cursor:pointer}
+.st .pole-g circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}
+.st .pole-g:hover circle,.st .pole-g:focus-visible circle{fill:var(--ink)}
+.st .pole-g:focus{outline:none}
+.st .pole-g.off{opacity:.2}
+.st .nm{font:400 10px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+
+/* ---------- Fig. 7 weekly timeline (dark panel in both themes) ---------- */
+.tl-panel{background:#141311;color:#ece6d8;padding:20px 20px 16px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tl-tags button{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;border:0;padding:5px 9px;cursor:pointer;color:#141311;background:var(--c)}
+.tl-tags button[aria-pressed="false"]{background:transparent;color:#8d877b;box-shadow:inset 0 0 0 1px #3b3830}
+.tl-tags .all{background:transparent;color:#ece6d8;box-shadow:inset 0 0 0 1px #6b675e}
+.tl-wrap{overflow-x:auto}
+#tl{min-width:640px}
+.tl text{font:400 11px var(--mono);fill:#a8a294}
+.tl .col{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;fill:#ece6d8}
+.tl .axis{stroke:#6b675e;stroke-width:1}
+.tl .rule{stroke:#2c2a25;stroke-width:1}
+.tl .dotg{cursor:pointer}
+.tl .dotg:focus{outline:none}
+.tl .dotg:hover circle,.tl .dotg:focus-visible circle{stroke:#ece6d8;stroke-width:2}
+.tl .dotg.off{opacity:.12}
+
+/* ---------- Fig. 8 geography & customers ---------- */
+.geo-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.geo-grid h3{margin:0 0 12px}
+.hbars{display:flex;flex-direction:column;gap:3px}
+.hbar{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:12px;align-items:center;background:none;border:0;padding:3px 0;cursor:pointer;text-align:left;font:300 14px var(--slab);color:var(--ink)}
+.hbar span:first-child{text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbar .t{display:flex;align-items:center;gap:8px;font:400 11px var(--mono);color:var(--ink-2)}
+.hbar .t i{display:block;height:12px;background:var(--ink);min-width:2px;transition:background .15s}
+.hbar:hover .t i,.hbar:focus-visible .t i{background:var(--accent)}
+.hbar.sel .t i{background:var(--ground)}
+.hbar.sel span:first-child{font-weight:600}
+.hbar:focus{outline:none}
+.dl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:28px;padding-top:18px;border-top:1px solid var(--rule)}
+.dl .label{margin-right:auto}
+@media (max-width:760px){.geo-grid{grid-template-columns:1fr;gap:32px}.hbar{grid-template-columns:120px 1fr}}
+
+/* ---------- tooltip ---------- */
+.tip{position:fixed;z-index:40;pointer-events:none;background:var(--ink);color:var(--paper);padding:8px 10px;font:400 12px/1.45 var(--mono);max-width:280px}
+.tip b{font:600 13px var(--slab);display:block}
+
+/* ---------- company drawer ---------- */
+.coname{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px}
+.coname:hover{text-decoration-color:var(--accent)}
+.scrim{position:fixed;inset:0;background:rgba(20,19,17,.35);z-index:45}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(480px,100vw);z-index:50;background:var(--paper);border-left:1.5px solid var(--ink);transform:translateX(102%);transition:transform .28s ease;overflow-y:auto;padding:28px 28px 40px;outline:none}
+.drawer.open{transform:none}
+.drawer .x{position:absolute;top:18px;right:18px;width:34px;height:34px;border:1px solid var(--rule);background:none;color:var(--ink);cursor:pointer;font-size:16px}
+.drawer h2{margin:22px 0 6px;font-weight:400;font-size:30px;line-height:1.15}
+.drawer .desc{margin:14px 0 20px;font-size:15.5px}
+.drawer dl{display:grid;grid-template-columns:110px 1fr;gap:12px 16px;margin:0;border-top:1px solid var(--ink);padding-top:18px}
+.drawer dt{font:400 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);padding-top:3px}
+.drawer dd{margin:0;font-size:14.5px}
+.drawer .tagbtn{cursor:pointer;background:none;color:var(--ink)}
+.drawer .tagbtn:hover{border-color:var(--accent);color:var(--accent)}
+.phases{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:2px}
+.phases span{font:400 9.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;text-align:center;padding:6px 2px;border:1px solid var(--rule);color:var(--ink-2)}
+.phases span.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.drawer .links{display:flex;gap:12px;margin-top:22px}
+.drawer .links a{text-decoration:none}
+@media (prefers-reduced-motion:reduce){.drawer{transition:none}}
+.drawer .tag{white-space:normal}
+@media (max-width:640px){
+  .drawer{padding:22px 18px 36px}
+  .drawer dl{grid-template-columns:1fr;gap:4px}
+  .drawer dd{margin-bottom:12px}
+  .phases span{font-size:8.5px;letter-spacing:0;padding:6px 1px}
+}

@@ -207,6 +207,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
+<link rel="stylesheet" href="viz.css">
 </head>
 <body>
 
@@ -240,9 +241,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="wrap"><p class="fig-cap label" id="figcap">Fig. 1 — One building per category, in lifecycle order, one floor per company. Open steel frames are companies added this week; dashed plots are categories with none yet. Select a building to filter the directory.</p></div>
 
 <main>
-<section class="block viz" id="lifecycle" data-title="Where the tools sit in a project">
+<section class="block viz" id="map" data-title="The market map">
   <div class="wrap">
     <div class="sec-head"><div class="idx">{B.1}</div><div>
+      <h2>The market map</h2>
+      <p>Every company, filed under each of its categories, in lifecycle order. Companies that don't match the current filters fade back. Select any company for its full profile.</p>
+    </div></div>
+    <div class="mm-bar"><span class="label" id="mm-count"></span><button type="button" class="btn" id="mm-png">Download as image</button></div>
+    <div class="mm" id="mm"></div>
+    <p class="label fig-note">Fig. 2 — The ConTech market map. A company appears once in each category it belongs to.</p>
+  </div>
+</section>
+
+<section class="block viz" id="lifecycle" data-title="Where the tools sit in a project">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{B.2}</div><div>
       <h2>Where the tools sit in a project</h2>
       <p>Each row is a category and each column a project phase. The stronger the shade, the more companies offer that kind of tool for that phase. Companies span several categories and phases, so they count in every cell they belong to.</p>
     </div></div>
@@ -250,7 +263,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <table class="hm" id="heatmap" aria-describedby="hm-cap"></table>
     </div>
     <div class="hm-foot">
-      <p class="label" id="hm-cap">Fig. 2 — Companies by category and phase. Select a cell to see those companies in the directory. <span id="hm-note"></span></p>
+      <p class="label" id="hm-cap">Fig. 3 — Companies by category and phase. Select a cell to see those companies in the directory. <span id="hm-note"></span></p>
       <div class="hm-key label" aria-hidden="true"><span>Fewer</span><i style="--p:12%"></i><i style="--p:34%"></i><i style="--p:56%"></i><i style="--p:78%"></i><i style="--p:100%"></i><span>More</span></div>
     </div>
   </div>
@@ -258,12 +271,68 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section class="block viz" id="overlaps" data-title="How categories combine">
   <div class="wrap">
-    <div class="sec-head"><div class="idx">{B.2}</div><div>
+    <div class="sec-head"><div class="idx">{B.3}</div><div>
       <h2>How categories combine</h2>
       <p>Most companies sit in more than one category. Each column is one exact combination; the bar above it counts the companies with that combination and nothing else. Dots below show which categories are in it, and the bars on the right show each category's total.</p>
     </div></div>
     <div class="up-wrap"><div id="upset"></div></div>
-    <p class="label fig-note" id="up-cap">Fig. 3 — Exact category combinations, an UpSet plot. Select a column to see those companies in the directory. <span id="up-note"></span></p>
+    <p class="label fig-note" id="up-cap">Fig. 4 — Exact category combinations, an UpSet plot. Select a column to see those companies in the directory. <span id="up-note"></span></p>
+  </div>
+</section>
+
+<section class="block viz" id="funding" data-title="Who raised what">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{B.4}</div><div>
+      <h2>Who raised what</h2>
+      <p>The latest disclosed round for each company, grouped like a pay-gap chart. Switch what the dots show and how the rows are grouped.</p>
+    </div></div>
+    <div class="controls fd-controls">
+      <label class="field"><span class="label">Plot by</span><select id="fd-plot"><option value="usd">Amount raised (USD, log scale)</option><option value="date">Date of latest round</option></select></label>
+      <label class="field"><span class="label">Group by</span><select id="fd-group"><option value="cat">Main category</option><option value="stage">Funding stage</option><option value="region">Region</option></select></label>
+      <div class="fd-key label" id="fd-key"></div>
+    </div>
+    <div class="fd-wrap" id="fd"></div>
+    <p class="label fig-note">Fig. 5 — Latest disclosed round per company. Each company appears once, under its first-listed category. Amounts in other currencies are converted to US dollars at fixed approximate rates. <span id="fd-note"></span></p>
+  </div>
+</section>
+
+<section class="block viz" id="stairs" data-title="Climbing the funding stairs">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{B.5}</div><div>
+      <h2>Climbing the funding stairs</h2>
+      <p>Each pole is a company, standing on its latest funding stage; its height is the amount raised in that round. The shaded steps mark each stage's median, so the staircase shows how round sizes grow from pre-seed to Series B.</p>
+    </div></div>
+    <div class="st-wrap"><div id="stairs-fig"></div></div>
+    <p class="label fig-note">Fig. 6 — Latest round size by stage, log scale. Only companies with a disclosed amount are shown. <span id="st-note"></span></p>
+  </div>
+</section>
+
+<section class="block viz" id="timeline" data-title="Week by week">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{B.6}</div><div>
+      <h2>Week by week</h2>
+      <p>The directory as it grows. Each row is a week, each column a region, and each dot a company added that week, coloured by its main category. Toggle categories with the tags.</p>
+    </div></div>
+    <div class="tl-panel">
+      <div class="tl-tags" id="tl-tags"></div>
+      <div class="tl-wrap"><div id="tl"></div></div>
+    </div>
+    <p class="label fig-note">Fig. 7 — Companies by week added to the directory (not founding date) and headquarters region. <span id="tl-note"></span></p>
+  </div>
+</section>
+
+<section class="block viz" id="geo" data-title="Where they are and who they serve">
+  <div class="wrap">
+    <div class="sec-head"><div class="idx">{B.7}</div><div>
+      <h2>Where they are and who they serve</h2>
+      <p>Headquarters countries and the customers these companies build for, for the current filters. Select a bar to filter everything else on the page.</p>
+    </div></div>
+    <div class="geo-grid">
+      <div><h3 class="label">Headquarters</h3><div class="hbars" id="geo-c"></div></div>
+      <div><h3 class="label">Customers served</h3><div class="hbars" id="geo-u"></div></div>
+    </div>
+    <div class="dl"><span class="label" id="dl-count"></span><button type="button" class="btn" id="dl-csv">Download CSV</button><button type="button" class="btn" id="dl-json">Download JSON</button></div>
+    <p class="label fig-note">Fig. 8 — Counts follow every filter on the page. Downloads contain exactly the companies currently shown in the directory.</p>
   </div>
 </section>
 
@@ -323,6 +392,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </div></footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="dr-name" tabindex="-1"></aside>
 
 <script>
 const EMAIL='visheshvikramsingh@gmail.com', SUBJECT='[ConTech Landscape] Company submission: <Company name>';
@@ -405,7 +477,7 @@ $('#showTpl').onclick=()=>showTpl($('#tpl').hidden);
 
 /* data + state (filters live in the URL so views can be shared) */
 let D=[],sortK='date_added',dir=-1;
-const S={q:'',cat:'',cust:'',phase:'',combo:''};
+const S={q:'',cat:'',cust:'',phase:'',combo:'',company:''};
 const NEW_DAYS=8;
 function readURL(){const p=new URLSearchParams(location.search);for(const k in S)S[k]=p.get(k)||''}
 function writeURL(){const p=new URLSearchParams();for(const k in S)if(S[k])p.set(k,S[k]);const qs=p.toString();history.replaceState(null,'',(qs?'?'+qs:location.pathname)+location.hash)}
@@ -423,13 +495,14 @@ function init(){
   $('#q').value=S.q;$('#cat').value=S.cat;$('#cust').value=S.cust;$('#phase').value=S.phase;
   const bind=(sel,k)=>$(sel).addEventListener('input',e=>{S[k]=e.target.value;update()});
   bind('#q','q');bind('#cat','cat');bind('#cust','cust');bind('#phase','phase');
-  $('#clear').onclick=()=>{for(const k in S)S[k]='';['#q','#cat','#cust','#phase'].forEach(s=>$(s).value='');update()};
+  $('#clear').onclick=()=>{FILTER_KEYS.forEach(k=>S[k]='');['#q','#cat','#cust','#phase'].forEach(s=>$(s).value='');update()};
   document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;dir=sortK===k?-dir:(k==='date_added'?-1:1);sortK=k;render()});
-  facts();skyline();heatmap();upset();render();
-  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{skyline();upset()},120)});
+  facts();skyline();heatmap();upset();render();window.vizInit&&vizInit();
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{skyline();upset();window.vizResize&&vizResize()},120)});
 }
-function update(){writeURL();render();skyline();heatmap();upset()}
+function update(){writeURL();render();skyline();heatmap();upset();window.vizUpdate&&vizUpdate()}
 const fmtDate=s=>new Date(s+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const slug=t=>String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const isNew=x=>x.date_added&&(Date.now()-new Date(x.date_added+'T00:00:00'))<NEW_DAYS*864e5;
 
 function facts(){
@@ -561,18 +634,19 @@ function upset(){
 }
 
 /* {D} directory table */
+const FILTER_KEYS=['q','cat','cust','phase','combo'];
+function matchAll(x){const q=S.q.toLowerCase();return (!S.combo||comboKey(x)===S.combo)&&(!S.cat||(x.category||[]).includes(S.cat))&&(!S.cust||(x.customer||[]).includes(S.cust))&&(!S.phase||(x.phases||[]).includes(S.phase))
+    &&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q))}
 function render(){
-  const q=S.q.toLowerCase();
-  const f=D.filter(x=>(!S.combo||comboKey(x)===S.combo)&&(!S.cat||(x.category||[]).includes(S.cat))&&(!S.cust||(x.customer||[]).includes(S.cust))&&(!S.phase||(x.phases||[]).includes(S.phase))
-    &&(!q||[x.company,x.description,(x.subcategory||[]).join(' '),x.hq].join(' ').toLowerCase().includes(q)));
+  const f=D.filter(matchAll);
   f.sort((a,b)=>String(a[sortK]||'').localeCompare(String(b[sortK]||''))*dir);
-  const active=Object.values(S).some(Boolean);
+  const active=FILTER_KEYS.some(k=>S[k]);
   $('#count').innerHTML=(active?`Showing ${f.length} of ${D.length} companies`:`${D.length} companies`)+(S.combo?`<span class="chipf">Only: ${esc(S.combo.split('|').map(shortCat).join(' + '))}</span>`:'');
   $('#clear').hidden=!active;
   document.querySelectorAll('th[data-k]').forEach(th=>{th.querySelector('.arr')?.remove();if(th.dataset.k===sortK)th.insertAdjacentHTML('beforeend',`<span class="arr"> ${dir>0?'↑':'↓'}</span>`)});
   const tags=(a,c='')=>(a||[]).map(n=>`<span class="tag ${c}">${esc(n)}</span>`).join('');
   $('#rows').innerHTML=f.length?f.map(x=>`<tr>
-    <td class="co">${esc(x.company)}${isNew(x)?'<span class="new">NEW</span>':''}<span class="links">${x.website?`<a href="${esc(x.website)}" target="_blank" rel="noopener">Website ↗</a>`:''}${x.linkedin?`<a href="${esc(x.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a>`:''}</span></td>
+    <td class="co"><button type="button" class="coname" data-co="${esc(slug(x.company))}">${esc(x.company)}</button>${isNew(x)?'<span class="new">NEW</span>':''}<span class="links">${x.website?`<a href="${esc(x.website)}" target="_blank" rel="noopener">Website ↗</a>`:''}${x.linkedin?`<a href="${esc(x.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a>`:''}</span></td>
     <td class="desc">${esc(x.description)||'—'}</td>
     <td data-h="Category">${tags(x.category)}${tags(x.subcategory,'s')}</td>
     <td data-h="Customers">${tags(x.customer,'s')}</td>
@@ -582,5 +656,6 @@ function render(){
     :`<tr><td colspan="7" class="label" style="padding:28px 0">No companies match these filters. <button class="clear label" onclick="document.getElementById('clear').click()">Clear filters</button></td></tr>`;
 }
 </script>
+<script src="viz.js"></script>
 </body>
 </html>
